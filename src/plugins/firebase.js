@@ -8,13 +8,13 @@ import "firebase/storage";
 
 // Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyCJNdfOm1pVR_YjVwinu_5A88wMruFJ7SE",
-  authDomain: "song-mates.firebaseapp.com",
-  databaseURL: "https://song-mates.firebaseio.com",
-  projectId: "song-mates",
-  storageBucket: "song-mates.appspot.com",
-  messagingSenderId: "459526013224",
-  appId: "1:459526013224:web:d24f4c6fdcc67b01a8101d",
+  apiKey: "AIzaSyCb9zbPeTqxA2Ii7figAcHRlv-M7xvs4Q4",
+  authDomain: "press-play-2c928.firebaseapp.com",
+  databaseURL: "https://press-play-2c928.firebaseio.com",
+  projectId: "press-play-2c928",
+  storageBucket: "press-play-2c928.appspot.com",
+  messagingSenderId: "1056478838596",
+  appId: "1:1056478838596:web:71b5c060a060c66615e111",
   measurementId: "G-YTDZ0CZXXQ"
 };
 

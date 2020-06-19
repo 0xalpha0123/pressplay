@@ -553,7 +553,7 @@ export default {
         });
       }
 
-      if (Object.keys(vm.question).length == 0) {
+      if (!vm.question || Object.keys(vm.question).length == 0) {
         return vm.$error(
           "We were unable to load the question. It's probably just temporary, try again.",
           {
