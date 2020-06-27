@@ -135,19 +135,22 @@ ion-avatar {
 }
 
 // Buttons
-ion-button,
-ion-fab-button {
-  &.opacity-button {
-    --opacity: 0.8;
-    --background-activated-opacity: 1;
-    --background-hover-opacity: 1;
-    &:active,
-    &:focus,
-    &:hover {
-      --opacity: 1;
-    }
-  }
+ion-button {
+	--border-radius: 20vw;
+	ion-fab-button {
+	  &.opacity-button {
+	    --opacity: 0.8;
+	    --background-activated-opacity: 1;
+	    --background-hover-opacity: 1;
+	    &:active,
+	    &:focus,
+	    &:hover {
+	      --opacity: 1;
+	    }
+	  }
+	}
 }
+
 
 // Custom color classes
 .ion-color-blurple {
