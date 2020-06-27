@@ -36,7 +36,7 @@ export default {
       return filter(this.categoryData, category => {
         if (parentPath == null) {
           return category.parent == null;
-        } else if (category.parent !== null) {
+        } else if (category.parent) {
           return category.parent.path == parentPath;
         } else {
           return false;
