@@ -343,6 +343,19 @@ const routes = [
             title: "Subscription"
           }
         }
+      },
+      {
+        path: "payment",
+        component: () => import("@/views/subscription/payment.vue"),
+        name: "subscription_payment",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            priority: 0
+          }
+        }
       }
     ]
   },
