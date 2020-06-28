@@ -151,6 +151,22 @@ ion-button {
 	}
 }
 
+.subscription_dialog {
+  .alert-wrapper {
+    border-radius: 15px;
+    .alert-button-group{
+      justify-content: space-between;
+      .confirm_button{
+        background-color: #5D148C;
+        color: white;
+        border-radius: 30px;
+      }
+      .return_button{
+        color: #5D148C;
+      }
+    }
+  }
+}
 
 // Custom color classes
 .ion-color-blurple {

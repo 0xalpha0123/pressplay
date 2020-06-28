@@ -60,7 +60,7 @@
               class="bright-horizontal-gradient"
               expand="block"
               size="large"
-              type="submit"
+              @click="subscribe_plan"
             >
               {{ plan_option == 0 ? 'Free' : '$' + plan_price + ' ' + plan_period }}
             </ion-button>
@@ -145,6 +145,9 @@ export default {
     set_plan_period(period) {
       this.plan_period = period;
       this.set_subscription_price();
+    },
+    subscribe_plan() {
+      this.$router.push({name: 'subscription_payment', params: { plan_option: this.plan_option, plan_period: this.plan_period, plan_price: this.plan_price}})
     },
     setLayoutVars() {
       let header = merge(this.$navigator.layoutVars.header, {
