@@ -22,3 +22,9 @@ exports.songstory = require("./src/songstory");
  * Handles user functions
  */
 exports.user = require("./src/user");
+
+/**
+ * Handles payment using Stripe
+ */
+
+exports.payment = require("./src/payment");
