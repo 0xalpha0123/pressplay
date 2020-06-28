@@ -32,20 +32,25 @@
         </ion-row>
         <ion-list>
           <ion-item>
-            <h3><icon name="checkmark-circle"></icon>Unlimited Answers</h3>
+            <h3><icon name="checkmark-circle"></icon><span>Unlimited Answers</span></h3>
           </ion-item>
           <ion-item>
-            <h3><icon name="checkmark-circle"></icon>Submit Questions</h3>
+            <h3><icon name="checkmark-circle"></icon><span>Submit Questions</span></h3>
           </ion-item>
           <ion-item>
-            <h3><icon name="checkmark-circle"></icon>View cleared questions</h3>
+            <h3><icon name="checkmark-circle"></icon><span>View cleared questions</span></h3>
           </ion-item>
           <ion-item>
-            <h3><icon :name="plan_option == 2 ? 'checkmark-circle' : 'close-circle'"></icon>Rock me vault</h3>
+            <h3><icon :name="plan_option == 2 ? 'checkmark-circle' : 'close-circle'"></icon><span>Rock me vault</span></h3>
           </ion-item>
         </ion-list>
         <ion-row class="ion-justify-content-center ion-margin-top">
           <div v-for="(i, k) in [1,2,3]" :key="k" class="dot" v-bind:class="{active: k===plan_option}" />
+        </ion-row>
+        <ion-row class="ion-justify-content-center ion-margin-top" v-if="this.plan_option !== 0">
+          <ion-button v-for="(period, i) in ['weekly', 'monthly', 'quarterly']" :key="i" :fill="plan_period === period ? 'outline' : 'clear'" @click="set_plan_period(period)">
+            {{ period }}
+          </ion-button>
         </ion-row>
       </div>
       <ion-grid>
@@ -57,7 +62,7 @@
               size="large"
               type="submit"
             >
-              Save
+              {{ plan_option == 0 ? 'Free' : '$' + plan_price + ' ' + plan_period }}
             </ion-button>
           </ion-col>
         </ion-row>
@@ -87,6 +92,8 @@ export default {
         speed: 400
       },
       plan_option: 0,
+      plan_period: 'weekly',
+      plan_price: 0,
     };
   },
   watch: {
@@ -111,7 +118,33 @@ export default {
     change_plan(evt) {
       evt.target.getActiveIndex().then(i => {
         this.plan_option = i
+        this.set_subscription_price()
       });
+    },
+    set_subscription_price() {
+      if(this.plan_option == 0){
+        this.plan_price = 0
+      }else if(this.plan_option == 1){
+        if(this.plan_period == 'weekly'){
+          this.plan_price = 3.99
+        }else if(this.plan_period == 'monthly'){
+          this.plan_price = 12.99
+        }else if(this.plan_period == 'quarterly'){
+          this.plan_price = 36.99
+        }
+      }else if(this.plan_option == 2){
+        if(this.plan_period == 'weekly'){
+          this.plan_price = 6.99
+        }else if(this.plan_period == 'monthly'){
+          this.plan_price = 24.99
+        }else if(this.plan_period == 'quarterly'){
+          this.plan_price = 72.99
+        }
+      }
+    },
+    set_plan_period(period) {
+      this.plan_period = period;
+      this.set_subscription_price();
     },
     setLayoutVars() {
       let header = merge(this.$navigator.layoutVars.header, {
@@ -140,10 +173,22 @@ export default {
 <style lang="scss" scoped>
 .subscription_plan {
   text-align: center;
-  margin-top: -180px;
+  margin-top: -190px;
   h3{
-    font-size: 24px;
+    font-size: 20px;
     color: white;
+  }
+}
+.subscription_content {
+  ion-item {
+    h3 {
+      display: flex;
+      align-items: center;
+      span {
+        margin-left: 5px;
+        font-size: 20px;
+      }
+    }
   }
 }
 .title {
