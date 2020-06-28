@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <template v-if="!loading && !error && hasBrowse">
-      <ion-content fullscreen ref="wrapper">
+      <ion-content fullscreen>
         <ion-header
           class="no-style"
           ref="header"

@@ -317,6 +317,36 @@ const routes = [
     ]
   },
   {
+    path: "/subscription",
+    component: () => import("@/views/subscription/index.vue"),
+    meta: {
+      authRequired: true,
+      layout: "navigator",
+      menu: {
+        title: "Subscription",
+        icon: "c-songstory",
+        hide: false,
+        priority: 1
+      }
+    },
+    children: [
+      {
+        path: "",
+        component: () => import("@/views/subscription/subscription.vue"),
+        name: "subscription",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            priority: 0,
+            title: "Subscription"
+          }
+        }
+      }
+    ]
+  },
+  {
     path: "/signup",
     component: () => import("@/views/signup/index.vue"),
     meta: {
