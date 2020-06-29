@@ -21,7 +21,7 @@ export default {
         .then(res => {
           return res.data;
         })
-        .catch(function() {
+        .catch(function () {
           return vm.$error(
             "We were unable to accept this conversation. It's probably just temporary, try again.",
             {
@@ -40,7 +40,7 @@ export default {
             }
           );
         })
-        .finally(function() {
+        .finally(function () {
           vm.accepting = false;
         });
     },
@@ -56,7 +56,7 @@ export default {
         .then(res => {
           return res.data;
         })
-        .catch(function() {
+        .catch(function () {
           return vm.$error(
             "We were unable to archive this conversation. It's probably just temporary, try again.",
             {
@@ -75,7 +75,7 @@ export default {
             }
           );
         })
-        .finally(function() {
+        .finally(function () {
           vm.archiving = false;
         });
     },
@@ -91,7 +91,7 @@ export default {
         .then(res => {
           return res.data;
         })
-        .catch(function() {
+        .catch(function () {
           return vm.$error(
             "We were unable to reject this conversation. It's probably just temporary, try again.",
             {
@@ -110,7 +110,7 @@ export default {
             }
           );
         })
-        .finally(function() {
+        .finally(function () {
           vm.rejecting = false;
         });
     }
