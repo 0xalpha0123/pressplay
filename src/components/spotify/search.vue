@@ -21,22 +21,14 @@
     <template v-if="!isSelected && hasSong">
       <search-item :item="preSelected">
         <template v-slot:itemend>
-          <icon
-            name="close"
-            slot="end"
-            @click.native.prevent="clearSelected"
-          ></icon>
+          <icon name="close" slot="end" @click.native.prevent="clearSelected"></icon>
         </template>
       </search-item>
     </template>
     <template v-if="isSelected">
       <search-item :item="selected">
         <template v-slot:itemend>
-          <icon
-            name="close"
-            slot="end"
-            @click.native.prevent="clearSelected"
-          ></icon>
+          <icon name="close" slot="end" @click.native.prevent="clearSelected"></icon>
         </template>
       </search-item>
     </template>

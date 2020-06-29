@@ -7,17 +7,12 @@
   >
     <slot name="itemstart"></slot>
     <ion-avatar slot="start">
-      <ion-img
-        :src="getSpotifyItemImage(item)"
-        v-if="spotifyItemHasImages(item)"
-      />
+      <ion-img :src="getSpotifyItemImage(item)" v-if="spotifyItemHasImages(item)" />
       <icon name="musical-notes" size="large" v-else></icon>
     </ion-avatar>
     <ion-label class="ion-text-wrap">
       <ion-text>
-        <h4>
-          {{ getSpotifyItemName(item) }}
-        </h4>
+        <h4>{{ getSpotifyItemName(item) }}</h4>
       </ion-text>
       <ion-text color="medium" v-if="showType">
         <h5>{{ getSpotifyItemType(item) }}</h5>

@@ -2,10 +2,7 @@
   <div>
     <ion-header v-if="searchTypes.length > 1">
       <ion-toolbar>
-        <ion-segment
-          :value="activeType"
-          @ionChange="activeType = $event.target.value"
-        >
+        <ion-segment :value="activeType" @ionChange="activeType = $event.target.value">
           <ion-segment-button class="ion-text-capitalize" value="all">
             <ion-label>All</ion-label>
           </ion-segment-button>
@@ -31,10 +28,7 @@
             v-on:selected="updateSelected"
           />
         </template>
-        <ion-item
-          class="ion-text-center"
-          v-if="results.length == 0 && !loading"
-        >
+        <ion-item class="ion-text-center" v-if="results.length == 0 && !loading">
           <ion-label>No results</ion-label>
         </ion-item>
       </ion-list>
@@ -72,7 +66,7 @@ export default {
   data() {
     return {
       activeType: "all",
-      limit: 20,
+      limit: 50,
       loading: false,
       offset: 0,
       searched: [],

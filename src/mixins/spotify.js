@@ -72,7 +72,7 @@ export default {
           item.artists.length > 0
         ) {
           data.artists = [];
-          item.artists.forEach(function(artist) {
+          item.artists.forEach(function (artist) {
             data.artists.push({
               id: artist.id,
               href: artist.href,
