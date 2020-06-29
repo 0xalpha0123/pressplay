@@ -2,7 +2,10 @@
   <ion-page>
     <ion-content fullscreen>
       <div class="subscription_content">
-        <img src="../../assets/images/ga-ticket.png" v-if="$route.params.plan_option === 0" />
+        <img
+          src="../../assets/images/ga-ticket.png"
+          v-if="$route.params.plan_option === 0" 
+          />
         <img src="../../assets/images/vip-badge.png" v-if="$route.params.plan_option === 1" />
         <img src="../../assets/images/rock-star.png" v-if="$route.params.plan_option === 2" />
         <ion-row class="ion-justify-content-center">
@@ -117,10 +120,10 @@ export default {
         initialSlide: 1,
         speed: 400
       },
-      plan_type: ['GA', 'VIP', 'RockStar'],
-      plan_period: 'weekly',
+      plan_type: ["GA", "VIP", "RockStar"],
+      plan_period: "weekly",
       card_info: {
-        name: '', number: '', exp: '', cvv: ''
+        name: "", number: "", exp: "", cvv: ""
       }
     };
   },
@@ -174,23 +177,23 @@ export default {
     show_subscription_alert(){
       return this.$ionic.alertController
         .create({
-          cssClass: 'subscription_dialog',
-          header: 'Confirm Subscription',
-          message: 'You’ll be billed on the 22nd of each month. You can cancel whenever. <br/><br/> You’re gonna have a good time!',
+          cssClass: "subscription_dialog",
+          header: "Confirm Subscription",
+          message: "You’ll be billed on the 22nd of each month. You can cancel whenever. <br/><br/> You’re gonna have a good time!",
           buttons: [
             {
-              text: 'Return',
-              role: 'cancel',
-              cssClass: 'return_button',
+              text: "Return",
+              role: "cancel",
+              cssClass: "return_button",
               handler: blah => {
-                console.log('Confirm Cancel:', blah)
+                console.log("Confirm Cancel:", blah)
               },
             },
             {
-              text: 'Continue',
-              cssClass: 'confirm_button',
+              text: "Continue",
+              cssClass: "confirm_button",
               handler: () => {
-                this.$router.push({ name: 'subscription_complete', params: { plan_option: this.$route.params.plan_option } })
+                this.$router.push({ name: "subscription_complete", params: { plan_option: this.$route.params.plan_option } })
               },
             },
           ],
