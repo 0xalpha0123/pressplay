@@ -49,6 +49,7 @@ const actions = {
               let token = Object.assign({}, res.data, {
                 time: new Date().getTime()
               });
+              console.log("Token: " + token);
               commit("updateSpotifyToken", token);
               resolve(token);
             },
