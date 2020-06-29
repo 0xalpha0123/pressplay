@@ -356,6 +356,19 @@ const routes = [
             priority: 0
           }
         }
+      },
+      {
+        path: "complete",
+        component: () => import("@/views/subscription/complete.vue"),
+        name: "subscription_complete",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            priority: 0
+          }
+        }
       }
     ]
   },

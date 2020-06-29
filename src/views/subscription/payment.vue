@@ -190,7 +190,7 @@ export default {
               text: 'Continue',
               cssClass: 'confirm_button',
               handler: () => {
-                console.log('Confirm Okay')
+                this.$router.push({ name: 'subscription_complete', params: { plan_option: this.$route.params.plan_option } })
               },
             },
           ],
