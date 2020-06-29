@@ -1,6 +1,11 @@
 import axios from "axios";
 import qs from "querystring";
 
+const spotifyCredentials = { // App: PressPlay
+  clientId: "fd07e277de1a449685ef412053131dfe",
+  clientSecret: "b3fdd9d0d1594d03988cb3d20d567ce7" // Can be rest in Spotify Developer Account
+}
+
 const initialState = () => ({
   spotifyToken: null
 });
@@ -31,20 +36,16 @@ const actions = {
         axios
           .post(
             "https://accounts.spotify.com/api/token",
-            qs.stringify({ grant_type: "client_credentials" }),
+            qs.stringify({ grant_type: "client_credentials", client_secret: spotifyCredentials.clientSecret, client_id: spotifyCredentials.clientId }),
             {
               headers: {
-                Authorization:
-                  "Basic " +
-                  window.btoa(
-                    "68e05de03dfa49c080e1ed41546e038c:c04de8dd09c14c13a94c74074765d261"
-                  ),
                 "Content-Type": "application/x-www-form-urlencoded"
               }
             }
           )
           .then(
             res => {
+              console.log("Spotify Token Object: " + res);
               let token = Object.assign({}, res.data, {
                 time: new Date().getTime()
               });
