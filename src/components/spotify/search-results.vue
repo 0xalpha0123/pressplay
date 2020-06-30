@@ -156,9 +156,9 @@ export default {
       // Build query object
       let queryObject = {
         limit: vm.limit,
-        offset: vm.offset,
+        offset: 0,
         type: vm.searchType,
-        q: value
+        q: '"' + value + '"' // for strict search
       };
 
       // Execute search
