@@ -223,6 +223,20 @@ const routes = [
         }
       },
       {
+        path: "subscriptions",
+        component: () => import("@/views/subscription/details.vue"),
+        name: "subscription.details",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            title: "My Subscriptions",
+            hide: true,
+            priority: 2
+          }
+        }
+      },
+      {
         path: "settings",
         component: () => import("@/views/profile/settings/index.vue"),
         name: "profile.settings",
@@ -368,7 +382,20 @@ const routes = [
             hide: true,
             priority: 0
           }
-        }
+        },
+      },
+      {
+        path: "details",
+        component: () => import("@/views/subscription/details.vue"),
+        name: "subscription_details",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            priority: 0
+          }
+        },
       }
     ]
   },
