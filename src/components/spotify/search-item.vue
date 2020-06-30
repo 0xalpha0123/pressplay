@@ -1,13 +1,12 @@
 <template>
   <ion-item
-    :button="selectable"
-    detail="false"
-    lines="none"
-    @click.prevent="selectable ? $emit('selected', item) : null"
+    button="true"
+    detail="true"
+    @click.native.prevent="openSpotifyPlayer"
   >
     <slot name="itemstart"></slot>
     <ion-avatar slot="start">
-      <ion-img :src="getSpotifyItemImage(item)" v-if="spotifyItemHasImages(item)" />
+      <ion-img :src="getSpotifyItemImage(item)" v-if="spotifyItemHasImages(item)"/>
       <icon name="musical-notes" size="large" v-else></icon>
     </ion-avatar>
     <ion-label class="ion-text-wrap">
@@ -33,13 +32,18 @@ export default {
     },
     selectable: {
       type: Boolean,
-      default: false
+      default: true
     },
     showType: {
       type: Boolean,
       default: true
     }
   },
-  mixins: [SpotifyFunctions]
+  mixins: [SpotifyFunctions], 
+  methods: {
+    openSpotifyPlayer() {
+      console.log("open spotify player");
+    }
+  }
 };
 </script>

@@ -249,7 +249,7 @@ export default {
       "answers",
       function(answers) {
         answers.map(answer => {
-          if (vm.exclusions.indexOf(answer.question.path) === -1) {
+          if (answer.question != undefined && vm.exclusions.indexOf(answer.question.path) === -1) {
             vm.exclusions.push(answer.question.path);
           }
         });

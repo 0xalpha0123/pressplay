@@ -48,10 +48,13 @@ export default {
       let vm = this;
       let answers = vm.browseAnswers ? vm.browseAnswers : vm.answers;
       return filter(answers, answer => {
-        let answerPath = vm.browseAnswers
-          ? answer.question
-          : answer.question.path;
-        return answerPath == question.path;
+        if (answer && answer.question) {
+          let answerPath = vm.browseAnswers
+            ? answer.question
+            : answer.question.path;
+          return answerPath == question.path;
+        }
+        return undefined;
       });
     },
 
@@ -70,7 +73,7 @@ export default {
             {
               text: "Confirm",
               cssClass: "danger",
-              handler: function() {
+              handler: function () {
                 vm.clearQuestion(question, answerId);
               }
             }
@@ -85,7 +88,7 @@ export default {
 
       // Get current cleared questions
       let clearedQuestions = [];
-      forEach(this.userData.settings.clearedQuestions, function(question) {
+      forEach(this.userData.settings.clearedQuestions, function (question) {
         clearedQuestions.push(
           vm.$fireStore.collection("songstory_questions").doc(question.id)
         );
@@ -193,13 +196,13 @@ export default {
       let categories = [];
 
       filter(vm.categoryData, category => category.parent == null).forEach(
-        function(category) {
+        function (category) {
           let answerCount = 0;
           let answers = [];
           let children = [];
           let questionCount = 0;
 
-          vm.getSubCategories(category.path).forEach(function(child, c) {
+          vm.getSubCategories(category.path).forEach(function (child, c) {
             // Push sub category
             children.push(
               Object.assign({}, toPlainObject(child), {
@@ -209,7 +212,7 @@ export default {
               })
             );
             // Get questions
-            vm.getCategoryQuestions(child).forEach(function(question, q) {
+            vm.getCategoryQuestions(child).forEach(function (question, q) {
               // Update questionCounts
               questionCount++;
               children[c].questionCount++;
@@ -218,7 +221,7 @@ export default {
                 Object.assign({}, toPlainObject(question), { answers: [] })
               );
               // Get question answers
-              vm.getQuestionAnswers(question).forEach(function(answer) {
+              vm.getQuestionAnswers(question).forEach(function (answer) {
                 // Push answerCounts
                 children[c].answerCount++;
                 answerCount++;
