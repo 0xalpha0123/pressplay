@@ -191,7 +191,7 @@
                               v-for="(item, d) in answer.data"
                               :key="`dItem${d}`"
                               :item="item"
-                              :selectable="false"
+                              :selectable="true"
                             ></spotify-item>
                           </ion-list>
                         </template>
