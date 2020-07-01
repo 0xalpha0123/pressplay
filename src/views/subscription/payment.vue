@@ -124,7 +124,9 @@ export default {
       plan_period: "weekly",
       card_info: {
         name: "", number: "", exp: "", cvv: ""
-      }
+      },
+      stripe_key: 'pk_live_51GxNVoBe3cLUBg304XGdyrL98strrb5T7wM5m2OGKAozOC0vk73WsTNFPI3f0fE7VpdaRm5tMk5QTzIDrbNeD8XA00HhMTT7Oj',
+      stripe: ''
     };
   },
   watch: {
@@ -146,8 +148,27 @@ export default {
     }
   },
   mounted() {
+    this.includeStripe('js.stripe.com/v3/', function(){
+        this.configureStripe();
+    }.bind(this) );
   },
   methods: {
+    includeStripe( URL, callback ){
+        let documentTag = document, tag = 'script',
+            object = documentTag.createElement(tag),
+            scriptTag = documentTag.getElementsByTagName(tag)[0];
+        object.src = '//' + URL;
+        if (callback) { object.addEventListener('load', function (e) { callback(null, e); }, false); }
+        scriptTag.parentNode.insertBefore(object, scriptTag);
+    },
+    configureStripe(){
+      this.stripe = Stripe( this.stripe_key );
+
+      this.elements = this.stripe.elements();
+      this.card = this.elements.create('card');
+
+      this.card.mount('#card-element');
+    },
     setLayoutVars() {
       let header = merge(this.$navigator.layoutVars.header, {
         class: "no-style-lg-down",
@@ -193,7 +214,8 @@ export default {
               text: "Continue",
               cssClass: "confirm_button",
               handler: () => {
-                this.$router.push({ name: "subscription_complete", params: { plan_option: this.$route.params.plan_option } })
+                console.log(this.card_info)
+                // this.$router.push({ name: "subscription_complete", params: { plan_option: this.$route.params.plan_option } })
               },
             },
           ],
