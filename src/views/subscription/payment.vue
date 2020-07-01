@@ -162,12 +162,12 @@ export default {
         scriptTag.parentNode.insertBefore(object, scriptTag);
     },
     configureStripe(){
-      this.stripe = Stripe( this.stripe_key );
+      // this.stripe = Stripe( this.stripe_key );
 
-      this.elements = this.stripe.elements();
-      this.card = this.elements.create('card');
+      // this.elements = this.stripe.elements();
+      // this.card = this.elements.create('card');
 
-      this.card.mount('#card-element');
+      // this.card.mount('#card-element');
     },
     setLayoutVars() {
       let header = merge(this.$navigator.layoutVars.header, {
