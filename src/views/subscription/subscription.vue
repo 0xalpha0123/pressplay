@@ -22,7 +22,7 @@
         </ion-slides>
       </div>
       <div class="subscription_content">
-        <ion-row class="ion-justify-content-center ion-margin-top">
+        <ion-row class="ion-justify-content-center content_header ion-margin-top">
           <h2>song story</h2>
           <icon
             class="songstory-cat-icon ion-margin-start ion-margin-end"
@@ -41,7 +41,7 @@
             <h3><icon name="checkmark-circle"></icon><span>View cleared questions</span></h3>
           </ion-item>
           <ion-item>
-            <h3><icon :name="plan_option == 2 ? 'checkmark-circle' : 'close-circle'"></icon><span>Rock me vault</span></h3>
+            <h3><icon v-bind:style="plan_option == 2 ? 'color: #2A82EC' : 'color: #BDBDBD'" :name="plan_option == 2 ? 'checkmark-circle' : 'close-circle'"></icon><span>Rock me vault</span></h3>
           </ion-item>
         </ion-list>
         <ion-row class="ion-justify-content-center ion-margin-top">
@@ -147,7 +147,11 @@ export default {
       this.set_subscription_price();
     },
     subscribe_plan() {
-      this.$router.push({name: 'subscription_payment', params: { plan_option: this.plan_option, plan_period: this.plan_period, plan_price: this.plan_price}})
+      if(this.plan_option === 0) {
+        this.$router.push({name: 'subscription_complete', params: { plan_option: this.plan_option, plan_period: this.plan_period, plan_price: this.plan_price}})
+      } else {
+        this.$router.push({name: 'subscription_payment', params: { plan_option: this.plan_option, plan_period: this.plan_period, plan_price: this.plan_price}})
+      }
     },
     setLayoutVars() {
       let header = merge(this.$navigator.layoutVars.header, {
@@ -183,13 +187,26 @@ export default {
   }
 }
 .subscription_content {
+  .content_header {
+    h2 {
+      font-size: 24px;
+      color: #F2C94C;
+    }
+    ion-icon {
+      font-size: 56px;
+      color: #9B51E0;
+    }
+  }
   ion-item {
     h3 {
       display: flex;
       align-items: center;
+      ion-icon {
+        color: #2A82EC;
+      }
       span {
         margin-left: 5px;
-        font-size: 20px;
+        font-size: 16px;
       }
     }
   }
