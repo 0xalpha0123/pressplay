@@ -156,6 +156,10 @@ export default {
     },
     subscribe_plan() {
       if(this.plan_option === 0) {
+        this.$store.dispatch("Subscription/saveSubscription", {
+          plan_option: this.plan_option,
+          date: new Date()
+        })
         this.$router.push({name: 'subscription_complete', params: { plan_option: this.plan_option, plan_period: this.plan_period, plan_price: this.plan_price}})
       } else {
         this.$router.push({name: 'subscription_payment', params: { plan_option: this.plan_option, plan_period: this.plan_period, plan_price: this.plan_price}})
