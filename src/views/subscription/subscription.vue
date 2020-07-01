@@ -8,16 +8,24 @@
         ref="profileBanner"
       ></aspect-ratio>
       <div class="subscription_plan">
-        <h3>you're meant to be...</h3>
+        <h3 v-if="plan_option === 0">a face in the crowd</h3>
+        <h3 v-if="plan_option === 1">you're meant to be...</h3>
+        <h3 v-if="plan_option === 2">party like a...</h3>
         <ion-slides :options="slideOpts" @ionSlideDidChange="change_plan">
           <ion-slide value="slide1">
-            <h1>GA</h1>
+            <img
+              src="../../assets/images/ga-ticket.png"
+            />
           </ion-slide>
           <ion-slide value="slide2">
-            <h1>VIP</h1>
+            <img
+              src="../../assets/images/vip-badge.png"
+            />
           </ion-slide>
           <ion-slide>
-            <h1>RockStar</h1>
+            <img
+              src="../../assets/images/rock-star.png"
+            />
           </ion-slide>
         </ion-slides>
       </div>
@@ -32,7 +40,7 @@
         </ion-row>
         <ion-list>
           <ion-item>
-            <h3><icon name="checkmark-circle"></icon><span>Unlimited Answers</span></h3>
+            <h3><icon name="checkmark-circle"></icon><span>{{ plan_option === 0 ? 'Six answers' : 'Unlimited Answers' }}</span></h3>
           </ion-item>
           <ion-item>
             <h3><icon name="checkmark-circle"></icon><span>Submit Questions</span></h3>
@@ -229,6 +237,9 @@ export default {
 }
 ion-slides {
   width: 100%;
-  color: white
+  color: white;
+  img {
+    height: 100px;
+  }
 }
 </style>
