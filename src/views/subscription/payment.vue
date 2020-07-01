@@ -16,6 +16,7 @@
             {{ period }}
           </ion-button>
         </ion-row>
+        {{stripeValidationError}}
         <ion-row>
           <ion-col size="12">
             <ion-input
@@ -33,45 +34,15 @@
         </ion-row>
         <ion-row>
           <ion-col size="12">
-            <ion-input
-              autocapitalize="on"
-              enterkeyhint="done"
-              placeholder="Card number"
-              minlength="1"
-              maxlength="35"
-              required
-              type="text"
-              :value="card_info.number"
-              @ionChange="card_info.number = $event.target.value"
-            ></ion-input>
+            <div id="card-number-element"></div>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col size="6">
-            <ion-input
-              autocapitalize="on"
-              enterkeyhint="done"
-              placeholder="Exp"
-              minlength="1"
-              maxlength="35"
-              required
-              type="text"
-              :value="card_info.exp"
-              @ionChange="card_info.exp = $event.target.value"
-            ></ion-input>
+            <div id="card-expiry-element"></div>
           </ion-col>
           <ion-col size="6">
-            <ion-input
-              autocapitalize="on"
-              enterkeyhint="done"
-              placeholder="CVV"
-              minlength="1"
-              maxlength="35"
-              required
-              type="text"
-              :value="card_info.cvv"
-              @ionChange="card_info.cvv = $event.target.value"
-            ></ion-input>
+            <div id="card-cvc-element"></div>
           </ion-col>
         </ion-row>
         <p>
@@ -125,8 +96,13 @@ export default {
       card_info: {
         name: "", number: "", exp: "", cvv: ""
       },
-      stripe_key: 'pk_live_51GxNVoBe3cLUBg304XGdyrL98strrb5T7wM5m2OGKAozOC0vk73WsTNFPI3f0fE7VpdaRm5tMk5QTzIDrbNeD8XA00HhMTT7Oj',
-      stripe: ''
+      stripe_key: 'pk_test_51GxNVoBe3cLUBg30BiiFdOWsToslnWHdGkhvhHaYsOXqQIwdtWuMbgXO00ns3SCNnd1FeM66UNqK1XwjS7wl8MI700r6roZNMn',
+      stripe: '',
+      elements: '',
+      card: undefined,
+      stripeValidationError: '',
+      cardNumberElement: '',
+      cardCvcElement: ''
     };
   },
   watch: {
@@ -149,7 +125,7 @@ export default {
   },
   mounted() {
     this.includeStripe('js.stripe.com/v3/', function(){
-        this.configureStripe();
+      this.configureStripe();
     }.bind(this) );
   },
   methods: {
@@ -162,12 +138,23 @@ export default {
         scriptTag.parentNode.insertBefore(object, scriptTag);
     },
     configureStripe(){
-      // this.stripe = Stripe( this.stripe_key );
+      this.stripe = window.Stripe( this.stripe_key )
+      this.elements = this.stripe.elements()
+      this.cardNumberElement = this.elements.create("cardNumber");
+      this.cardNumberElement.mount("#card-number-element");
 
-      // this.elements = this.stripe.elements();
-      // this.card = this.elements.create('card');
+      this.cardExpiryElement= this.elements.create("cardExpiry");
+      this.cardExpiryElement.mount("#card-expiry-element");
 
-      // this.card.mount('#card-element');
+      this.cardCvcElement= this.elements.create("cardCvc");
+      this.cardCvcElement.mount("#card-cvc-element");
+
+      this.cardNumberElement.on("change", this.setValidationError);
+      this.cardExpiryElement.on("change", this.setValidationError);
+      this.cardCvcElement.on("change", this.setValidationError);
+    },
+    setValidationError(event) {
+      this.stripeValidationError = event.error ? event.error.message : "";
     },
     setLayoutVars() {
       let header = merge(this.$navigator.layoutVars.header, {
@@ -214,7 +201,16 @@ export default {
               text: "Continue",
               cssClass: "confirm_button",
               handler: () => {
-                console.log(this.card_info)
+                console.log(this.card)
+                this.stripe.createToken(this.card).then((response) => {
+                  console.log(response)
+                })
+                // this.$store.dispatch("Subscription/saveSubscription", {
+                //   plan_option: this.$route.params.plan_option,
+                //   plan_price: this.$route.params.plan_price,
+                //   plan_period: this.$route.params.plan_period,
+                //   date: new Date()
+                // })
                 // this.$router.push({ name: "subscription_complete", params: { plan_option: this.$route.params.plan_option } })
               },
             },
@@ -233,13 +229,18 @@ export default {
     width: 100px;
     margin-top: 60px;
   }
-  ion-input {
+  ion-input, .StripeElement {
     text-align: left;
     border: 1px solid #ddd;
     box-shadow: 1px 1px 1px #ddd;
     border-radius: 30px;
+    color: black;
+  }
+  ion-input {
     padding: 0 5px !important;
-    color: gray;
+  }
+  .StripeElement {
+    padding: 10px;
   }
   p{
     margin: 5px 0;
