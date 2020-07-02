@@ -4,19 +4,34 @@
       <div class="subscription_content">
         <img
           src="../../assets/images/ga-ticket.png"
-          v-if="$route.params.plan_option === 0" 
-          />
-        <img src="../../assets/images/vip-badge.png" v-if="$route.params.plan_option === 1" />
-        <img src="../../assets/images/rock-star.png" v-if="$route.params.plan_option === 2" />
+          v-if="$route.params.plan_option === 0"
+        />
+        <img
+          src="../../assets/images/vip-badge.png"
+          v-if="$route.params.plan_option === 1"
+        />
+        <img
+          src="../../assets/images/rock-star.png"
+          v-if="$route.params.plan_option === 2"
+        />
         <ion-row class="ion-justify-content-center">
-          <h2><b>${{$route.params.plan_price}}</b> billed today</h2>
+          <h2>
+            <b>${{ $route.params.plan_price }}</b> billed today
+          </h2>
         </ion-row>
-        <ion-row class="ion-justify-content-center ion-margin-top" v-if="$route.params.plan_option !== 0">
-          <ion-button v-for="(period, i) in ['weekly', 'monthly', 'quarterly']" :key="i" :fill="plan_period === period ? 'outline' : 'clear'" @click="set_plan_period(period)">
+        <ion-row
+          class="ion-justify-content-center ion-margin-top"
+          v-if="$route.params.plan_option !== 0"
+        >
+          <ion-button
+            v-for="(period, i) in ['weekly', 'monthly', 'quarterly']"
+            :key="i"
+            :fill="plan_period === period ? 'outline' : 'clear'"
+            @click="set_plan_period(period)"
+          >
             {{ period }}
           </ion-button>
         </ion-row>
-        {{stripeValidationError}}
         <ion-row>
           <ion-col size="12">
             <ion-input
@@ -46,10 +61,7 @@
           </ion-col>
         </ion-row>
         <p>
-          <icon
-            name="lock-closed-outline"
-            color="primary"
-          ></icon>
+          <icon name="lock-closed-outline" color="primary"></icon>
           <span>Your payment is secure and confidential</span>
         </p>
       </div>
@@ -83,7 +95,7 @@ export default {
     },
     menubar: {
       navPosition: "bottom"
-    },
+    }
   },
   data() {
     return {
@@ -94,15 +106,19 @@ export default {
       plan_type: ["GA", "VIP", "RockStar"],
       plan_period: "weekly",
       card_info: {
-        name: "", number: "", exp: "", cvv: ""
+        name: "",
+        number: "",
+        exp: "",
+        cvv: ""
       },
-      stripe_key: 'pk_test_51GxNVoBe3cLUBg30BiiFdOWsToslnWHdGkhvhHaYsOXqQIwdtWuMbgXO00ns3SCNnd1FeM66UNqK1XwjS7wl8MI700r6roZNMn',
-      stripe: '',
-      elements: '',
+      stripe_key:
+        "pk_test_51GxNVoBe3cLUBg30BiiFdOWsToslnWHdGkhvhHaYsOXqQIwdtWuMbgXO00ns3SCNnd1FeM66UNqK1XwjS7wl8MI700r6roZNMn",
+      stripe: "",
+      elements: "",
       card: undefined,
-      stripeValidationError: '',
-      cardNumberElement: '',
-      cardCvcElement: ''
+      stripeValidationError: "",
+      cardNumberElement: "",
+      cardCvcElement: ""
     };
   },
   watch: {
@@ -124,29 +140,41 @@ export default {
     }
   },
   mounted() {
-    this.includeStripe('js.stripe.com/v3/', function(){
-      this.configureStripe();
-    }.bind(this) );
+    this.includeStripe(
+      "js.stripe.com/v3/",
+      function() {
+        this.configureStripe();
+      }.bind(this)
+    );
   },
   methods: {
-    includeStripe( URL, callback ){
-        let documentTag = document, tag = 'script',
-            object = documentTag.createElement(tag),
-            scriptTag = documentTag.getElementsByTagName(tag)[0];
-        object.src = '//' + URL;
-        if (callback) { object.addEventListener('load', function (e) { callback(null, e); }, false); }
-        scriptTag.parentNode.insertBefore(object, scriptTag);
+    includeStripe(URL, callback) {
+      let documentTag = document,
+        tag = "script",
+        object = documentTag.createElement(tag),
+        scriptTag = documentTag.getElementsByTagName(tag)[0];
+      object.src = "//" + URL;
+      if (callback) {
+        object.addEventListener(
+          "load",
+          function(e) {
+            callback(null, e);
+          },
+          false
+        );
+      }
+      scriptTag.parentNode.insertBefore(object, scriptTag);
     },
-    configureStripe(){
-      this.stripe = window.Stripe( this.stripe_key )
-      this.elements = this.stripe.elements()
+    configureStripe() {
+      this.stripe = window.Stripe(this.stripe_key);
+      this.elements = this.stripe.elements();
       this.cardNumberElement = this.elements.create("cardNumber");
       this.cardNumberElement.mount("#card-number-element");
 
-      this.cardExpiryElement= this.elements.create("cardExpiry");
+      this.cardExpiryElement = this.elements.create("cardExpiry");
       this.cardExpiryElement.mount("#card-expiry-element");
 
-      this.cardCvcElement= this.elements.create("cardCvc");
+      this.cardCvcElement = this.elements.create("cardCvc");
       this.cardCvcElement.mount("#card-cvc-element");
 
       this.cardNumberElement.on("change", this.setValidationError);
@@ -161,11 +189,11 @@ export default {
         class: "no-style-lg-down",
         title: {
           color: "primary",
-          text: this.plan_type[this.$route.params.plan_option]  + " Subscription"
+          text: this.plan_type[this.$route.params.plan_option] + " Subscription"
         },
         toolbar: {
           icon: {
-            name: 'back'
+            name: "back"
           }
         }
       });
@@ -179,32 +207,43 @@ export default {
       this.$navigator.$refs.app.style.setProperty("--content-height", "100vh");
       this.$navigator.$refs.header.style.setProperty("position", "absolute");
     },
-    set_plan_period(period){
-      this.plan_period = period
+    set_plan_period(period) {
+      this.plan_period = period;
     },
-    show_subscription_alert(){
+    show_subscription_alert() {
       return this.$ionic.alertController
         .create({
           cssClass: "subscription_dialog",
           header: "Confirm Subscription",
-          message: "You’ll be billed on the 22nd of each month. You can cancel whenever. <br/><br/> You’re gonna have a good time!",
+          message:
+            "You’ll be billed on the 22nd of each month. You can cancel whenever. <br/><br/> You’re gonna have a good time!",
           buttons: [
             {
               text: "Return",
               role: "cancel",
               cssClass: "return_button",
               handler: blah => {
-                console.log("Confirm Cancel:", blah)
-              },
+                console.log("Confirm Cancel:", blah);
+              }
             },
             {
               text: "Continue",
               cssClass: "confirm_button",
               handler: () => {
-                console.log(this.card)
-                this.stripe.createToken(this.card).then((response) => {
-                  console.log(response)
-                })
+                if (this.stripeValidationError === "") {
+                  this.stripe
+                    .createToken(this.cardNumberElement)
+                    .then(response => {
+                      if (response.error) {
+                        this.stripeValidationError = response.error.message;
+                        console.log(this.stripeValidationError);
+                      } else {
+                        console.log(response);
+                      }
+                    });
+                } else {
+                  console.log(this.stripeValidationError);
+                }
                 // this.$store.dispatch("Subscription/saveSubscription", {
                 //   plan_option: this.$route.params.plan_option,
                 //   plan_price: this.$route.params.plan_price,
@@ -212,11 +251,11 @@ export default {
                 //   date: new Date()
                 // })
                 // this.$router.push({ name: "subscription_complete", params: { plan_option: this.$route.params.plan_option } })
-              },
-            },
-          ],
+              }
+            }
+          ]
         })
-        .then(a => a.present())
+        .then(a => a.present());
     }
   }
 };
@@ -229,7 +268,8 @@ export default {
     width: 100px;
     margin-top: 60px;
   }
-  ion-input, .StripeElement {
+  ion-input,
+  .StripeElement {
     text-align: left;
     border: 1px solid #ddd;
     box-shadow: 1px 1px 1px #ddd;
@@ -242,12 +282,12 @@ export default {
   .StripeElement {
     padding: 10px;
   }
-  p{
+  p {
     margin: 5px 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    ion-icon{
+    ion-icon {
       font-size: 20px;
     }
     span {
