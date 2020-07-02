@@ -38,29 +38,31 @@ const actions = {
       }
     }
   ),
-  saveSubscription: firestoreAction(
-    ({ rootState }, payload) => {
-      console.log(Vue.prototype.$fireStore)
-      if (rootState.User.userLoaded) {
-        const subscriptionRef = Vue.prototype.$fireStore.collection("subscriptions").doc(rootState.User.user.uid)
-        subscriptionRef.get().then((snapShot) => {
-          if (snapShot.exists) {
-            return subscriptionRef.update("subscriptions", firebase.firestore.FieldValue.arrayUnion(payload))
-              .then(() => {
-                console.log("subscription saved!")
-              })
-          } else {
-            return subscriptionRef.set({subscriptions: [ payload ]})
-              .then(() => {
-                console.log("subscription saved!")
-              })
-          }
-        })
-      } else {
-        return false;
-      }
+  saveSubscription: firestoreAction(({ rootState }, payload) => {
+    if (rootState.User.userLoaded) {
+      const subscriptionRef = Vue.prototype.$fireStore
+        .collection("subscriptions")
+        .doc(rootState.User.user.uid);
+      subscriptionRef.get().then(snapShot => {
+        if (snapShot.exists) {
+          return subscriptionRef
+            .update(
+              "subscriptions",
+              firebase.firestore.FieldValue.arrayUnion(payload)
+            )
+            .then(() => {
+              console.log("subscription saved!");
+            });
+        } else {
+          return subscriptionRef.set({ subscriptions: [payload] }).then(() => {
+            console.log("subscription saved!");
+          });
+        }
+      });
+    } else {
+      return false;
     }
-  )
+  })
 };
 
 const mutations = {
