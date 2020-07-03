@@ -10,19 +10,19 @@
       <ion-row class="subscription_card">
         <img
           src="../../assets/images/ga-ticket.png"
-          v-if="plan_option === 0"
+          v-if="current_subscription.plan_option === 0"
         />
         <img
           src="../../assets/images/vip-badge.png"
-          v-if="plan_option === 1"
+          v-if="current_subscription.plan_option === 1"
         />
         <img
           src="../../assets/images/rock-star.png"
-          v-if="plan_option === 2"
+          v-if="current_subscription.plan_option === 2"
         />
         <div class="subscription_card_content">
-          <h1>{{ plan_option === 0 ? 'GA ' : plan_option === 1 ? 'VIP ' : 'RockStar' }} Member</h1>
-          <h3>Renews {{ (new Date()).getMonth() + 1 }}.{{ (new Date()).getDate() }}.{{ (new Date()).getFullYear() }}</h3>
+          <h1>{{ current_subscription.plan_option === 0 ? 'GA ' : current_subscription.plan_option === 1 ? 'VIP ' : 'RockStar' }} Member</h1>
+          <h3>Renews {{ (new Date(current_subscription.date.seconds * 1000)).getMonth() + 1 }}.{{ (new Date(current_subscription.date.seconds * 1000)).getDate() }}.{{ (new Date(current_subscription.date.seconds * 1000)).getFullYear() }}</h3>
           <ion-row>
             <ion-col size="6">2/3</ion-col>
             <ion-col size="6">2/5</ion-col>
@@ -46,12 +46,12 @@
       </div>
       <div class="billing_history">
         <h3>Billing History</h3>
-        <ion-row>
-          <h4>6.22.20</h4>
-          <h5>VIP Subscription 12.99</h5>
+        <ion-row v-for="(plan, index) in subscriptions" v-bind:key="index">
+          <h4> {{ new Date(plan.date.seconds * 1000).getMonth() + 1 }}.{{ new Date(plan.date.seconds * 1000).getDate() }}.{{ new Date(plan.date.seconds * 1000).getFullYear().toString().substring(2) }}</h4>
+          <h5>{{ subscription_plan[plan.plan_option] }} Subscription {{ plan.plan_option === 0 ? 'Free' : plan.plan_price }}</h5>
           <p>View</p>
         </ion-row>
-        <h2>View more</h2>
+        <h2 v-if="subscriptions.length > 3">View more</h2>
       </div>
       <ion-row class="buttons_container ion-align-items-center ion-justify-content-between">
         <ion-col size="12" size-md="6">
@@ -74,7 +74,15 @@ import merge from "lodash/merge";
 export default {
   data() {
     return {
-      plan_option: 1
+      subscriptions: [],
+      subscription_plan: ['GA', 'VIP', 'RockStar']
+    }
+  },
+  computed: {
+    current_subscription: {
+      get() {
+        return this.subscriptions[this.subscriptions.length - 1]
+      }
     }
   },
   watch: {
@@ -94,6 +102,11 @@ export default {
       },
       immediate: true
     }
+  },
+  mounted() {
+    this.$store.dispatch("Subscription/getSubscription").then(res => {
+      this.subscriptions = res.subscriptions;
+    })
   },
   methods: {
     setLayoutVars() {
@@ -117,7 +130,7 @@ export default {
       this.$navigator.$refs.header.style.setProperty("position", "absolute");
     },
     change_subscription_plan() {
-
+      this.$router.push({ name: 'subscription', params: { plan_option: this.current_subscription.plan_option }})
     }
   }
 };
@@ -221,6 +234,9 @@ export default {
       font-weight: bold;
       color: #5D148C;
     }
+  }
+  .buttons_container {
+    margin-top: 10px;
   }
 }
 </style>
