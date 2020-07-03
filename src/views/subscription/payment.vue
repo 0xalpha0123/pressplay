@@ -230,6 +230,8 @@ export default {
               text: "Continue",
               cssClass: "confirm_button",
               handler: () => {
+                let vm = this;
+                let makePayment = vm.$fireFunc.httpsCallable("payment-payment");
                 if (this.stripeValidationError === "") {
                   this.stripe
                     .createToken(this.cardNumberElement)
@@ -239,6 +241,13 @@ export default {
                         console.log(this.stripeValidationError);
                       } else {
                         console.log(response);
+                        makePayment({ 
+                          amount: vm.$route.params.plan_price * 100,
+                          currency: 'USD',
+                          source: response.token.card.id,
+                        }).then( res => {
+                          console.log(res);
+                        })
                       }
                     });
                 } else {
