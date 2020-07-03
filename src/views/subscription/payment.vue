@@ -246,6 +246,13 @@ export default {
                           currency: 'USD',
                           source: response.token.card.id,
                         }).then( res => {
+                          this.$store.dispatch("Subscription/saveSubscription", {
+                            plan_option: this.$route.params.plan_option,
+                            plan_price: this.$route.params.plan_price,
+                            plan_period: this.$route.params.plan_period,
+                            date: new Date()
+                          })
+                          this.$router.push({ name: "subscription_complete", params: { plan_option: this.$route.params.plan_option } })
                           console.log(res);
                         })
                       }
@@ -253,13 +260,6 @@ export default {
                 } else {
                   console.log(this.stripeValidationError);
                 }
-                // this.$store.dispatch("Subscription/saveSubscription", {
-                //   plan_option: this.$route.params.plan_option,
-                //   plan_price: this.$route.params.plan_price,
-                //   plan_period: this.$route.params.plan_period,
-                //   date: new Date()
-                // })
-                // this.$router.push({ name: "subscription_complete", params: { plan_option: this.$route.params.plan_option } })
               }
             }
           ]

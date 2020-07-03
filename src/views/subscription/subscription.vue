@@ -1,17 +1,14 @@
 <template>
   <ion-page>
     <ion-content fullscreen>
-      <aspect-ratio
-        class="profile-banner"
-        ratio="16:9"
-        ratio-md="16:5"
-        ref="profileBanner"
-      ></aspect-ratio>
+      <div class="background">
+        <img src="../../assets/images/footer_back.png" class="footer_back" />
+      </div>
       <div class="subscription_plan">
         <h3 v-if="plan_option === 0">a face in the crowd</h3>
         <h3 v-if="plan_option === 1">you're meant to be...</h3>
         <h3 v-if="plan_option === 2">party like a...</h3>
-        <ion-slides :options="slideOpts" @ionSlideDidChange="change_plan">
+        <ion-slides :options="slideOpts" @ionSlideDidChange="change_plan" @ionSlidesDidLoad="init_slider">
           <ion-slide value="slide1">
             <img
               src="../../assets/images/ga-ticket.png"
@@ -96,7 +93,7 @@ export default {
   data() {
     return {
       slideOpts: {
-        initialSlide: 1,
+        initialSlide: 2,
         speed: 400
       },
       plan_option: 0,
@@ -122,7 +119,14 @@ export default {
       immediate: true
     }
   },
+  mounted() {
+    this.plan_option = !this.$route.params.plan_option ? 0 : this.$route.params.plan_option;
+
+  },
   methods: {
+    init_slider(evt) {
+      evt.target.slideTo(this.plan_option)
+    },
     change_plan(evt) {
       evt.target.getActiveIndex().then(i => {
         this.plan_option = i
@@ -190,12 +194,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.background {
+  background: radial-gradient(
+    90.14% 73.52% at 50% 27.42%,
+    #aa2986 0%,
+    #751a8a 27.08%,
+    #5d148c 66.15%,
+    #471b74 100%
+  );
+  width: 100%;
+  height: 35%;
+  position: absolute;
+  z-index: 0;
+  .footer_back {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+  }
+}
 .subscription_plan {
+  margin-top: 60px;
   text-align: center;
-  margin-top: -190px;
   h3{
     font-size: 20px;
     color: white;
+    position: relative;
   }
 }
 .subscription_content {
@@ -203,6 +226,7 @@ export default {
     h2 {
       font-size: 24px;
       color: #F2C94C;
+      z-index: 99;
     }
     ion-icon {
       font-size: 56px;
