@@ -21,8 +21,26 @@
           v-if="current_subscription.plan_option === 2"
         />
         <div class="subscription_card_content">
-          <h1>{{ current_subscription.plan_option === 0 ? 'GA ' : current_subscription.plan_option === 1 ? 'VIP ' : 'RockStar' }} Member</h1>
-          <h3>Renews {{ (new Date(current_subscription.date.seconds * 1000)).getMonth() + 1 }}.{{ (new Date(current_subscription.date.seconds * 1000)).getDate() }}.{{ (new Date(current_subscription.date.seconds * 1000)).getFullYear() }}</h3>
+          <h1>
+            {{
+              current_subscription.plan_option === 0
+                ? "GA "
+                : current_subscription.plan_option === 1
+                ? "VIP "
+                : "RockStar "
+            }}
+            Member
+          </h1>
+          <h3>
+            Renews
+            {{
+              new Date(current_subscription.date.seconds * 1000).getMonth() + 1
+            }}.{{
+              new Date(current_subscription.date.seconds * 1000).getDate()
+            }}.{{
+              new Date(current_subscription.date.seconds * 1000).getFullYear()
+            }}
+          </h3>
           <ion-row>
             <ion-col size="6">2/3</ion-col>
             <ion-col size="6">2/5</ion-col>
@@ -32,9 +50,7 @@
         </div>
       </ion-row>
       <ion-row class="gift_subscription">
-        <img
-          src="../../assets/images/md-gift.png"
-        />
+        <img src="../../assets/images/md-gift.png" />
         <span>gift subscription</span>
       </ion-row>
       <div class="payment_info">
@@ -47,13 +63,28 @@
       <div class="billing_history">
         <h3>Billing History</h3>
         <ion-row v-for="(plan, index) in subscriptions" v-bind:key="index">
-          <h4> {{ new Date(plan.date.seconds * 1000).getMonth() + 1 }}.{{ new Date(plan.date.seconds * 1000).getDate() }}.{{ new Date(plan.date.seconds * 1000).getFullYear().toString().substring(2) }}</h4>
-          <h5>{{ subscription_plan[plan.plan_option] }} Subscription {{ plan.plan_option === 0 ? 'Free' : plan.plan_price }}</h5>
+          <h4>
+            {{ new Date(plan.date.seconds * 1000).getMonth() + 1 }}.{{
+              new Date(plan.date.seconds * 1000).getDate()
+            }}.{{
+              new Date(plan.date.seconds * 1000)
+                .getFullYear()
+                .toString()
+                .substring(2)
+            }}
+          </h4>
+          <h5>
+            {{ subscription_plan[plan.plan_option] }}
+            Subscription
+            {{ plan.plan_option === 0 ? "Free" : plan.plan_price }}
+          </h5>
           <p>View</p>
         </ion-row>
         <h2 v-if="subscriptions.length > 3">View more</h2>
       </div>
-      <ion-row class="buttons_container ion-align-items-center ion-justify-content-between">
+      <ion-row
+        class="buttons_container ion-align-items-center ion-justify-content-between"
+      >
         <ion-col size="12" size-md="6">
           <ion-button
             class="bright-horizontal-gradient"
@@ -75,13 +106,13 @@ export default {
   data() {
     return {
       subscriptions: [],
-      subscription_plan: ['GA', 'VIP', 'RockStar']
-    }
+      subscription_plan: ["GA", "VIP", "RockStar"]
+    };
   },
   computed: {
     current_subscription: {
       get() {
-        return this.subscriptions[this.subscriptions.length - 1]
+        return this.subscriptions[this.subscriptions.length - 1];
       }
     }
   },
@@ -106,7 +137,7 @@ export default {
   mounted() {
     this.$store.dispatch("Subscription/getSubscription").then(res => {
       this.subscriptions = res.subscriptions;
-    })
+    });
   },
   methods: {
     setLayoutVars() {
@@ -130,7 +161,12 @@ export default {
       this.$navigator.$refs.header.style.setProperty("position", "absolute");
     },
     change_subscription_plan() {
-      this.$router.push({ name: 'subscription', params: { plan_option: this.current_subscription.plan_option }})
+      this.$router.push({
+        name: "subscription",
+        params: {
+          plan_option: this.current_subscription.plan_option
+        }
+      });
     }
   }
 };
@@ -138,8 +174,13 @@ export default {
 
 <style lang="scss" scoped>
 .subscription_card {
-  background: linear-gradient(171.01deg, #471B74 0.36%, #5D148C 56.93%, #AA2986 100%);
-  box-shadow: 0px 0px 8px #9B51E0;
+  background: linear-gradient(
+    171.01deg,
+    #471b74 0.36%,
+    #5d148c 56.93%,
+    #aa2986 100%
+  );
+  box-shadow: 0px 0px 8px #9b51e0;
   border-radius: 23px;
   width: 90%;
   position: absolute;
@@ -160,7 +201,7 @@ export default {
       font-weight: bold;
     }
     h3 {
-      color: #F5DE79;
+      color: #f5de79;
       font-size: 15px;
       margin: 0;
     }
@@ -178,7 +219,7 @@ export default {
     margin-right: 5px;
   }
   span {
-    color: #F2C94C;
+    color: #f2c94c;
     letter-spacing: 0.08em;
   }
 }
@@ -193,12 +234,12 @@ export default {
   .payment_info_content {
     h2 {
       font-size: 15px;
-      color: #4F4F4F;
+      color: #4f4f4f;
     }
     p {
       font-size: 16px;
       letter-spacing: 0.08em;
-      color: #E49062;
+      color: #e49062;
     }
   }
 }
@@ -212,7 +253,7 @@ export default {
   h2 {
     font-size: 16px;
     font-weight: bold;
-    color: #5D148C;
+    color: #5d148c;
     text-align: center;
   }
   ion-row {
@@ -221,18 +262,18 @@ export default {
     align-items: center;
     h4 {
       font-size: 20px;
-      color: #BDBDBD;
+      color: #bdbdbd;
     }
     h5 {
       font-size: 15px;
-      color: #4F4F4F;
+      color: #4f4f4f;
       font-weight: bold;
     }
     p {
       font-size: 16px;
       letter-spacing: 0.08em;
       font-weight: bold;
-      color: #5D148C;
+      color: #5d148c;
     }
   }
   .buttons_container {

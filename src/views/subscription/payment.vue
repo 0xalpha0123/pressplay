@@ -26,7 +26,7 @@
           <ion-button
             v-for="(period, i) in ['weekly', 'monthly', 'quarterly']"
             :key="i"
-            :fill="plan_period === period ? 'outline' : 'clear'"
+            :fill="$route.params.plan_period === period ? 'outline' : 'clear'"
             @click="set_plan_period(period)"
           >
             {{ period }}
@@ -211,12 +211,29 @@ export default {
       this.plan_period = period;
     },
     show_subscription_alert() {
+      let subscription_date = new Date().getDate().toString();
+      let subscription_date_str = "";
+      if (subscription_date.charAt(subscription_date.length - 1) == "1") {
+        subscription_date_str = subscription_date + "st";
+      } else if (
+        subscription_date.charAt(subscription_date.length - 1) == "2"
+      ) {
+        subscription_date_str = subscription_date + "nd";
+      } else if (
+        subscription_date.charAt(subscription_date.length - 1) == "3"
+      ) {
+        subscription_date_str = subscription_date + "rd";
+      } else {
+        subscription_date_str = subscription_date + "th";
+      }
       return this.$ionic.alertController
         .create({
           cssClass: "subscription_dialog",
           header: "Confirm Subscription",
           message:
-            "You’ll be billed on the 22nd of each month. You can cancel whenever. <br/><br/> You’re gonna have a good time!",
+            "You’ll be billed on the " +
+            subscription_date_str +
+            " of each month. You can cancel whenever. <br/><br/> You’re gonna have a good time!",
           buttons: [
             {
               text: "Return",
@@ -240,21 +257,32 @@ export default {
                         this.stripeValidationError = response.error.message;
                         console.log(this.stripeValidationError);
                       } else {
-                        console.log(response);
-                        makePayment({ 
+                        makePayment({
                           amount: vm.$route.params.plan_price * 100,
-                          currency: 'USD',
-                          source: response.token.card.id,
-                        }).then( res => {
-                          this.$store.dispatch("Subscription/saveSubscription", {
-                            plan_option: this.$route.params.plan_option,
-                            plan_price: this.$route.params.plan_price,
-                            plan_period: this.$route.params.plan_period,
-                            date: new Date()
-                          })
-                          this.$router.push({ name: "subscription_complete", params: { plan_option: this.$route.params.plan_option } })
-                          console.log(res);
+                          currency: "USD",
+                          source: response.token.id
                         })
+                          .then(res => {
+                            this.$store.dispatch(
+                              "Subscription/saveSubscription",
+                              {
+                                plan_option: this.$route.params.plan_option,
+                                plan_price: this.$route.params.plan_price,
+                                plan_period: this.$route.params.plan_period,
+                                date: new Date()
+                              }
+                            );
+                            this.$router.push({
+                              name: "subscription_complete",
+                              params: {
+                                plan_option: this.$route.params.plan_option
+                              }
+                            });
+                            console.log(res);
+                          })
+                          .catch(err => {
+                            console.log(err);
+                          });
                       }
                     });
                 } else {
