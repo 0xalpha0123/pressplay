@@ -14,14 +14,14 @@
           src="../../assets/images/rock-star.png"
           v-if="$route.params.plan_option === 2"
         />
-        <ion-row class="ion-justify-content-center">
+        <ion-row class="ion-justify-content-center" v-if="$route.params.type !== 'update_card'">
           <h2>
             <b>${{ $route.params.plan_price }}</b> billed today
           </h2>
         </ion-row>
         <ion-row
           class="ion-justify-content-center ion-margin-top"
-          v-if="$route.params.plan_option !== 0"
+          v-if="$route.params.plan_option !== 0 && $route.params.type !== 'update_card'"
         >
           <ion-button
             v-for="(period, i) in ['weekly', 'monthly', 'quarterly']"
@@ -64,21 +64,29 @@
           <icon name="lock-closed-outline" color="primary"></icon>
           <span>Your payment is secure and confidential</span>
         </p>
-      </div>
-      <ion-grid>
         <ion-row class="ion-justify-content-center">
           <ion-col size="12" size-md="6">
             <ion-button
               class="bright-horizontal-gradient"
               expand="block"
               size="large"
+              v-if="$route.params.type !== 'update_card'"
               @click="show_subscription_alert"
             >
               Subscribe
             </ion-button>
+            <ion-button
+              class="bright-horizontal-gradient"
+              expand="block"
+              size="large"
+              v-if="$route.params.type === 'update_card'"
+              @click="update_card_info"
+            >
+              Update Card
+            </ion-button>
           </ion-col>
         </ion-row>
-      </ion-grid>
+      </div>
     </ion-content>
   </ion-page>
 </template>
@@ -189,7 +197,7 @@ export default {
         class: "no-style-lg-down",
         title: {
           color: "primary",
-          text: this.plan_type[this.$route.params.plan_option] + " Subscription"
+          text: this.$route.params.type === "update_card" ? "Update Card Info" : this.plan_type[this.$route.params.plan_option] + " Subscription"
         },
         toolbar: {
           icon: {
@@ -209,6 +217,25 @@ export default {
     },
     set_plan_period(period) {
       this.plan_period = period;
+    },
+    update_card_info() {
+      this.stripe
+      .createToken(this.cardNumberElement)
+      .then(response => {
+        if (response.error) {
+          this.stripeValidationError = response.error.message;
+          console.log(this.stripeValidationError);
+        } else {
+          console.log(response);
+          this.$store.dispatch(
+            "Subscription/saveCardDetails",
+            { ...response.token.card, holder_name: this.card_info.name }
+          );
+          this.$router.push({
+            name: "subscription.details"
+          });
+        }
+      });
     },
     show_subscription_alert() {
       let subscription_date = new Date().getDate().toString();
@@ -305,10 +332,17 @@ export default {
 
 <style lang="scss" scoped>
 .subscription_content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   img {
     width: 100px;
-    margin-top: 60px;
+  }
+  ion-row {
+    width: 100%;
   }
   ion-input,
   .StripeElement {

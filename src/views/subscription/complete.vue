@@ -19,9 +19,10 @@
       </div>
       <img src="../../assets/images/footer_back.png" class="footer_back" />
       <ion-row class="buttons_container ion-align-items-center ion-justify-content-between">
-        <h4>View Receipt</h4>
+        <h4 @click="goToSubscriptions">View Receipt</h4>
         <ion-button
           class="bright-horizontal-gradient"
+          @click="goToPlay"
         >
           Play
         </ion-button>
@@ -69,6 +70,12 @@ export default {
       });
       this.$set(this.$navigator.layout, "header", header);
       this.$set(this.$navigator.layout, "sidebar", sidebar);
+    },
+    goToPlay() {
+      this.$router.push({ name: 'songstory' })
+    },
+    goToSubscriptions() {
+      this.$router.push({ name: 'subscriptions.details' })
     }
   }
 };

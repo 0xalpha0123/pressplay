@@ -68,8 +68,8 @@ const actions = {
       const subscriptionRef = Vue.prototype.$fireStore
         .collection("subscriptions")
         .doc(rootState.User.user.uid);
-        return subscriptionRef.set({ card: payload }).then(() => {
-          console.log("subscription saved!");
+        return subscriptionRef.update("card", payload).then(() => {
+          console.log("card info updated!");
         });
     } else {
       return false;
