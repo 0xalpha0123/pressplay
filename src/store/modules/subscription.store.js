@@ -62,7 +62,19 @@ const actions = {
     } else {
       return false;
     }
-  })
+  }),
+  saveCardDetails: firestoreAction(({ rootState }, payload) => {
+    if (rootState.User.userLoaded) {
+      const subscriptionRef = Vue.prototype.$fireStore
+        .collection("subscriptions")
+        .doc(rootState.User.user.uid);
+        return subscriptionRef.set({ card: payload }).then(() => {
+          console.log("subscription saved!");
+        });
+    } else {
+      return false;
+    }
+  }),
 };
 
 const mutations = {

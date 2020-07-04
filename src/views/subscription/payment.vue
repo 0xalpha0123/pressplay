@@ -257,6 +257,7 @@ export default {
                         this.stripeValidationError = response.error.message;
                         console.log(this.stripeValidationError);
                       } else {
+                        console.log(response);
                         makePayment({
                           amount: vm.$route.params.plan_price * 100,
                           currency: "USD",
@@ -271,6 +272,10 @@ export default {
                                 plan_period: this.$route.params.plan_period,
                                 date: new Date()
                               }
+                            );
+                            this.$store.dispatch(
+                              "Subscription/saveCardDetails",
+                              { ...response.token.card, holder_name: this.card_info.name }
                             );
                             this.$router.push({
                               name: "subscription_complete",
