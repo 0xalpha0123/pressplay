@@ -332,12 +332,10 @@ export default {
 
 <style lang="scss" scoped>
 .subscription_content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  margin-top: 80px;
+  margin-bottom: 80px;
   text-align: center;
-  justify-content: center;
-  align-items: center;
+  overflow: auto;
   img {
     width: 100px;
   }

@@ -234,9 +234,8 @@ export default {
   box-shadow: 0px 0px 8px #9b51e0;
   border-radius: 23px;
   width: 90%;
-  position: absolute;
-  top: 55px;
   left: 5%;
+  z-index: 99;
   align-items: center;
   padding: 16px;
   img {
