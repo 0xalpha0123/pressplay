@@ -77,25 +77,27 @@
         </div>
         <div class="billing_history">
           <h3>Billing History</h3>
-          <ion-row v-for="(plan, index) in subscriptions" v-bind:key="index">
-            <h4>
-              {{ new Date(plan.date.seconds * 1000).getMonth() + 1 }}.{{
-                new Date(plan.date.seconds * 1000).getDate()
-              }}.{{
-                new Date(plan.date.seconds * 1000)
-                  .getFullYear()
-                  .toString()
-                  .substring(2)
-              }}
-            </h4>
-            <h5>
-              {{ subscription_plan[plan.plan_option] }}
-              Subscription
-              {{ plan.plan_option === 0 ? "Free" : plan.plan_price }}
-            </h5>
-            <p>View</p>
-          </ion-row>
-          <h2 v-if="subscriptions.length > 3">View more</h2>
+          <div class="subscriptions_history">
+            <ion-row v-for="(plan, index) in subscriptions_list" v-bind:key="index">
+              <h4>
+                {{ new Date(plan.date.seconds * 1000).getMonth() + 1 }}.{{
+                  new Date(plan.date.seconds * 1000).getDate()
+                }}.{{
+                  new Date(plan.date.seconds * 1000)
+                    .getFullYear()
+                    .toString()
+                    .substring(2)
+                }}
+              </h4>
+              <h5>
+                {{ subscription_plan[plan.plan_option] }}
+                Subscription
+                {{ plan.plan_option === 0 ? "Free" : plan.plan_price }}
+              </h5>
+              <p>View</p>
+            </ion-row>
+          </div>
+          <h2 v-if="subscriptions.length > 3" @click="view_more_history">{{ show_all ? 'View less' : 'View more' }}</h2>
         </div>
         <ion-row
           class="buttons_container ion-align-items-center ion-justify-content-between"
@@ -122,7 +124,9 @@ export default {
   data() {
     return {
       subscriptions: [],
+      subscriptions_list: [],
       card_details: {},
+      show_all: false,
       subscription_plan: ["GA", "VIP", "RockStar"]
     };
   },
@@ -153,7 +157,8 @@ export default {
   },
   mounted() {
     this.$store.dispatch("Subscription/getSubscription").then(res => {
-      this.subscriptions = res.subscriptions;
+      this.subscriptions = res.subscriptions.reverse();
+      this.subscriptions_list = this.subscriptions.slice(0, 3);
       this.card_details = res.card;
     });
   },
@@ -180,6 +185,15 @@ export default {
     },
     update_card_info() {
       this.$router.push({ name: 'subscription_payment', params: { type: 'update_card' } })
+    },
+    view_more_history() {
+      if(this.show_all === false) {
+        this.show_all = true;
+        this.subscriptions_list = this.subscriptions;
+      } else {
+        this.show_all = false;
+        this.subscriptions_list = this.subscriptions.slice(0, 3);
+      }
     },
     change_subscription_plan() {
       this.$router.push({
@@ -311,6 +325,10 @@ export default {
     color: #5d148c;
     text-align: center;
   }
+  .subscriptions_history {
+    overflow-y: auto;
+    height: 165px;
+  }
   ion-row {
     border-bottom: 1px solid rgba(0, 0, 0, 0.13);
     justify-content: space-between;
@@ -333,7 +351,6 @@ export default {
   }
 }
 .buttons_container {
-  margin-top: 10px;
   width: 100%;
 }
 </style>

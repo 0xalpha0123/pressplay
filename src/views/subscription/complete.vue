@@ -75,7 +75,7 @@ export default {
       this.$router.push({ name: 'songstory' })
     },
     goToSubscriptions() {
-      this.$router.push({ name: 'subscriptions.details' })
+      this.$router.push({ name: 'subscription.details' })
     }
   }
 };
