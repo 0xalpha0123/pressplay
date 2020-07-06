@@ -4,7 +4,10 @@
       <div class="background">
         <img src="../../assets/images/footer_back.png" class="footer_back" />
       </div>
-      <div class="subscription_details_content" v-if="!subscriptions || subscriptions.length == 0">
+      <div
+        class="subscription_details_content"
+        v-if="!subscriptions || subscriptions.length == 0"
+      >
         <p class="no_subscription">You have not made any subscriptions.</p>
         <ion-row
           class="buttons_container ion-align-items-center ion-justify-content-between"
@@ -21,7 +24,10 @@
           </ion-col>
         </ion-row>
       </div>
-      <div class="subscription_details_content" v-if="subscriptions && subscriptions.length > 0">
+      <div
+        class="subscription_details_content"
+        v-if="subscriptions && subscriptions.length > 0"
+      >
         <ion-row class="subscription_card">
           <img
             src="../../assets/images/ga-ticket.png"
@@ -49,7 +55,8 @@
             <h3>
               Renews
               {{
-                new Date(current_subscription.date.seconds * 1000).getMonth() + 1
+                new Date(current_subscription.date.seconds * 1000).getMonth() +
+                  1
               }}.{{
                 new Date(current_subscription.date.seconds * 1000).getDate()
               }}.{{
@@ -78,7 +85,10 @@
         <div class="billing_history">
           <h3>Billing History</h3>
           <div class="subscriptions_history">
-            <ion-row v-for="(plan, index) in subscriptions_list" v-bind:key="index">
+            <ion-row
+              v-for="(plan, index) in subscriptions_list"
+              v-bind:key="index"
+            >
               <h4>
                 {{ new Date(plan.date.seconds * 1000).getMonth() + 1 }}.{{
                   new Date(plan.date.seconds * 1000).getDate()
@@ -97,7 +107,9 @@
               <p>View</p>
             </ion-row>
           </div>
-          <h2 v-if="subscriptions.length > 3" @click="view_more_history">{{ show_all ? 'View less' : 'View more' }}</h2>
+          <h2 v-if="subscriptions.length > 3" @click="view_more_history">
+            {{ show_all ? "View less" : "View more" }}
+          </h2>
         </div>
         <ion-row
           class="buttons_container ion-align-items-center ion-justify-content-between"
@@ -133,7 +145,9 @@ export default {
   computed: {
     current_subscription: {
       get() {
-        return this.subscriptions && this.subscriptions.length > 0 ? this.subscriptions[this.subscriptions.length - 1] : {};
+        return this.subscriptions && this.subscriptions.length > 0
+          ? this.subscriptions[this.subscriptions.length - 1]
+          : {};
       }
     }
   },
@@ -184,10 +198,13 @@ export default {
       this.$navigator.$refs.header.style.setProperty("position", "absolute");
     },
     update_card_info() {
-      this.$router.push({ name: 'subscription_payment', params: { type: 'update_card' } })
+      this.$router.push({
+        name: "subscription_payment",
+        params: { type: "update_card" }
+      });
     },
     view_more_history() {
-      if(this.show_all === false) {
+      if (this.show_all === false) {
         this.show_all = true;
         this.subscriptions_list = this.subscriptions;
       } else {

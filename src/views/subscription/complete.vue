@@ -18,12 +18,11 @@
         <p>you're in - let's get jammin'</p>
       </div>
       <img src="../../assets/images/footer_back.png" class="footer_back" />
-      <ion-row class="buttons_container ion-align-items-center ion-justify-content-between">
+      <ion-row
+        class="buttons_container ion-align-items-center ion-justify-content-between"
+      >
         <h4 @click="goToSubscriptions">View Receipt</h4>
-        <ion-button
-          class="bright-horizontal-gradient"
-          @click="goToPlay"
-        >
+        <ion-button class="bright-horizontal-gradient" @click="goToPlay">
           Play
         </ion-button>
       </ion-row>
@@ -72,10 +71,10 @@ export default {
       this.$set(this.$navigator.layout, "sidebar", sidebar);
     },
     goToPlay() {
-      this.$router.push({ name: 'songstory' })
+      this.$router.push({ name: "songstory" });
     },
     goToSubscriptions() {
-      this.$router.push({ name: 'subscription.details' })
+      this.$router.push({ name: "subscription.details" });
     }
   }
 };
@@ -111,7 +110,7 @@ export default {
     margin: 5px 0;
     font-size: 16px;
     font-weight: bold;
-    color: #F2C94C;  
+    color: #f2c94c;
   }
 }
 .footer_back {
