@@ -3,7 +3,7 @@
     <ion-content class="purple-vertical-gradient" fullscreen>
       <songstory-question
         :column-attrs="{ size: 12, 'size-md': 6, 'size-xl': 4 }"
-        question-id="favorites_artists"
+        question-id="favorites_what_are_your_f992a1e85557-4653-a8"
         question-color="white"
         :show-text="false"
         v-on:songstoryAnswer="saveAnswer"
