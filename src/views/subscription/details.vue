@@ -104,7 +104,8 @@
                 Subscription
                 {{ plan.plan_option === 0 ? "Free" : plan.plan_price }}
               </h5>
-              <p>View</p>
+              <p v-if="plan.plan_option !== 0" @click="create_invoice(index)">View</p>
+              <p v-if="plan.plan_option === 0" style="opacity: 0">View</p>
             </ion-row>
           </div>
           <h2 v-if="subscriptions.length > 3" @click="view_more_history">
@@ -132,6 +133,7 @@
 
 <script>
 import merge from "lodash/merge";
+import jsPDF from "jspdf";
 export default {
   data() {
     return {
@@ -196,6 +198,68 @@ export default {
       this.$set(this.$navigator.layout, "sidebar", sidebar);
       this.$navigator.$refs.app.style.setProperty("--content-height", "100vh");
       this.$navigator.$refs.header.style.setProperty("position", "absolute");
+    },
+    create_invoice(index) {
+      const doc = new jsPDF();
+      const selected_subscription = this.subscriptions_list[index];
+      const selected_plan_date = new Date(selected_subscription.date.seconds * 1000);
+      console.log(selected_subscription);
+      doc.setFontSize(25);
+      doc.setTextColor(30, 30, 30);
+      doc.text("PressPlay", 10, 25);
+      doc.setFontSize(30);
+      doc.text("INVOICE", 200, 25, 'right');
+
+      doc.setFontSize(16);
+      doc.text("[Street Address]", 10, 40);
+      doc.text("[City State Zipcode]", 10, 50);
+      
+      doc.setFillColor(0, 150, 200);
+      doc.rect(10, 73, 90, 10, 'F');
+      doc.rect(110, 43, 90, 10, 'F');
+      
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(16);
+      doc.text('Bill To', 15, 80);
+      doc.text("Invoice Date", 192, 50, 'right');
+      
+      doc.setTextColor(30, 30, 30);
+      doc.text(this.card_details.brand + ' ending in ' + this.card_details.last4, 15, 91);
+      doc.text((selected_plan_date.getMonth() + 1) + '.' + selected_plan_date.getDate() + '.' + selected_plan_date.getFullYear(), 192, 61, 'right');
+      
+      doc.setFillColor(0, 150, 200);
+      doc.rect(110, 73, 90, 10, 'F');
+      
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(16);
+      doc.text("Amount", 140, 80, 'right');
+      doc.text("Method", 192, 80, 'right');
+      
+      doc.setTextColor(30, 30, 30);
+      doc.text('$' + selected_subscription.plan_price, 140, 91, 'right');
+      doc.text('Pay with Card', 192, 91, 'right');
+      
+      doc.setFillColor(0, 150, 200);
+      doc.rect(10, 110, 190, 10, 'F');
+
+      doc.setTextColor(255, 255, 255);
+      doc.text('Description', 15, 117);
+      doc.text('Type', 140, 117, 'right');
+      doc.text('Price', 192, 117, 'right');
+
+      doc.setTextColor(30, 30, 30);
+      doc.text(this.subscription_plan[selected_subscription.plan_option] + ' Subscription', 15, 128);
+      doc.text(selected_subscription.plan_period.charAt(0).toUpperCase() + selected_subscription.plan_period.slice(1), 140, 128, 'right');
+      doc.text('$' + selected_subscription.plan_price, 192, 128, 'right');
+      doc.text('Total', 140, 150, 'right');
+      doc.text('$' + selected_subscription.plan_price, 192, 150, 'right');
+
+      let string = doc.output("datauristring");
+      let embed = "<embed width='100%' height='100%' src='" + string + "'/>";
+      let x = window.open();
+      x.document.open();
+      x.document.write(embed);
+      x.document.close();
     },
     update_card_info() {
       this.$router.push({
