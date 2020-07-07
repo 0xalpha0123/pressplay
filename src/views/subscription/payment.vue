@@ -307,7 +307,11 @@ export default {
                             this.$router.push({
                               name: "subscription_complete",
                               params: {
-                                plan_option: this.$route.params.plan_option
+                                plan_option: this.$route.params.plan_option,
+                                plan_price: this.$route.params.plan_price,
+                                plan_period: this.$route.params.plan_period,
+                                date: new Date(),
+                                card_info: { ...response.token.card, holder_name: this.card_info.name }
                               }
                             });
                             console.log(res);
