@@ -452,6 +452,10 @@ export default {
       return this.promptClearQuestion(this.question, this.answerId);
     },
 
+    fetchData() {
+      // TODO
+    },
+
     async fetchAnswer(answerRef) {
       let vm = this;
 
@@ -539,6 +543,7 @@ export default {
         vm.questions,
         question => question.id == questionId
       );
+
       if (typeof existingQuestion !== "undefined") {
         vm.question = existingQuestion;
       } else {
