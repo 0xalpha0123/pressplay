@@ -382,7 +382,7 @@ const routes = [
             hide: true,
             priority: 0
           }
-        },
+        }
       },
       {
         path: "details",
@@ -395,7 +395,7 @@ const routes = [
             hide: true,
             priority: 0
           }
-        },
+        }
       }
     ]
   },
@@ -509,6 +509,19 @@ const routes = [
             hide: true,
             priority: 0,
             title: "SongStory"
+          }
+        }
+      },
+      {
+        path: "demo-nowplaying",
+        component: () => import("@/views/songstory/demo/nowplaying.vue"),
+        name: "demo.nowplaying",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            title: "SongStory - Now Playing"
           }
         }
       },
