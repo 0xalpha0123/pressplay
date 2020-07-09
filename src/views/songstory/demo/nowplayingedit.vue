@@ -3,20 +3,20 @@
         <div class="row ">
             <div class="col-md-6 col-lg-4 mx-auto bg-white p-0">
                 <div class="full-screen position-relative visitor-btn-bottom">
-                    <div class="discography-box py-3 text-white px-4 position-relative">
+                    <div class="playing-box py-3 text-white px-4 position-relative">
                         <div class="play-pause-btn">
                             <a href="#" class="d-block">
                                 <img src="./assets/images/play-btn.png" alt="play pause button" />
                              </a>
                         </div>
                         <div class="discography-title text-center text-truncate w-75 mx-auto px-1">
-                            discography
+                            now playing
                         </div> 
                         <div class="discography-sub-title text-center text-truncate w-75 mx-auto px-1">
-                            your musical autobiography
+                            your currently on repeat
                         </div> 
                         <div class="discography-img px-2 pt-3">
-                            <img src="./assets/images/discography-img.png" alt="discography image">
+                            <img src="./assets/images/playing-img.png" alt="discography image">
                         </div>
                         <div class="discography-ans mt-3 pr-5">
                             <h3 class="text-truncate">10 answers</h3>
@@ -33,10 +33,9 @@
 
                     <div class="music-body px-3 mt-3">
                         <ul class="m-0 p-0 music-tab-menu position-relative">
-                            <li class="active"><a href="#">firsts</a></li>
-                            <li><a href="#">milestones</a></li>
-                            <li><a href="#">eras</a></li>
-                            <li><a href="#">summary</a></li>
+                            <li><a href="#">all</a></li>
+                            <li class="active"><a href="#">favorites</a></li>
+                            <li><a href="#">least favorites</a></li> 
                             <li><a href="#">moods</a></li>
                         </ul>
 
@@ -44,35 +43,69 @@
                             <div class="first-music-list-items d-flex py-3 border-bottom">
                                 <div class="first-music-list-items-icon col-1 p-0">
                                     <a href="#" class="d-block text-center"> 
-                                        <img src="./assets/images/search-purple.png" class="small-icon" alt="search icon"/> 
+                                        <span class="play-list-song">3</span>
                                     </a>
                                 </div>
                                 <div class="first-music-list-items-name text-capitalize col-9 px-3 w-100">
-                                    <h5 class="text-truncate">first musical memory</h5>
+                                    <h5 class="text-truncate">favorite genres</h5>
+                                    <h6 class="text-truncate text-capitalize font-weight-bold mb-0">folk, bluegrass, electronic</h6>
                                 </div>
                                 <div class="first-music-list-items-icon col-2 p-0 align-self-center">
                                     <a href="#" class="d-block text-center"> 
-                                        <img src="./assets/images/add-yellow.png" class="small-icon" alt="search icon"/> 
+                                        <img src="./assets/images/dotted-icon.png" class="small-icon" alt="menu icon"/> 
                                     </a>
                                 </div>
                             </div>
                             <div class="first-music-list-items d-flex py-3 border-bottom">
                                 <div class="first-music-list-items-icon col-1 p-0">
                                     <a href="#" class="d-block text-center"> 
-                                        <img src="./assets/images/blue-checkmark.png" class="small-icon" alt="search icon"/> 
+                                        <span class="play-list-song">5</span> 
                                     </a>
                                 </div>
                                 <div class="first-music-list-items-name text-capitalize col-9 px-3 w-100">
-                                    <h5 class="text-truncate">first musical purchase</h5>
-                                    <h6 class="text-truncate text-capitalize font-weight-bold mb-0">flyleaf</h6>
-                                    <p class="text-truncate text-lightgray">flyleaf</p>
+                                    <h5 class="text-truncate">favorite artists</h5>
+                                    <h6 class="text-truncate text-capitalize font-weight-bold mb-0">amber lily, tubby love, dust</h6>
                                 </div>
                                 <div class="first-music-list-items-icon col-2 p-0 align-self-center">
                                     <a href="#" class="d-block text-center"> 
-                                        <img src="./assets/images/play-icon.png" class="small-icon" alt="search icon"/> 
+                                        <img src="./assets/images/dotted-icon.png" class="small-icon" alt="menu icon"/> 
                                     </a>
                                 </div>
                             </div>
+                            <div class="first-music-list-items d-flex py-3 border-bottom">
+                                <div class="first-music-list-items-icon col-1 p-0">
+                                    <a href="#" class="d-block text-center"> 
+                                        <span class="play-list-song">10</span>
+                                    </a>
+                                </div>
+                                <div class="first-music-list-items-name text-capitalize col-9 px-3 w-100">
+                                    <h5 class="text-truncate">favorite songs</h5>
+                                    <h6 class="text-truncate text-capitalize font-weight-bold mb-0">love will find a way, the matrix</h6>
+                                    <p class="text-truncate text-lightgray">mika love, brandi carlile, dustin trans</p>
+                                </div>
+                                <div class="first-music-list-items-icon col-2 p-0 align-self-center">
+                                    <a href="#" class="d-block text-center"> 
+                                        <img src="./assets/images/play-icon.png" class="small-icon" alt="menu icon"/> 
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="first-music-list-items d-flex py-3 border-bottom">
+                                <div class="first-music-list-items-icon col-1 p-0">
+                                    <a href="#" class="d-block text-center"> 
+                                        <img src="./assets/images/search-purple.png" class="small-icon" alt="search icon"/> 
+                                    </a>
+                                </div>
+                                <div class="first-music-list-items-name text-capitalize col-9 px-3 w-100">
+                                    <h5 class="text-truncate">favorite albums</h5>
+                                </div>
+                                <div class="first-music-list-items-icon col-2 p-0 align-self-center">
+                                    <a href="#" class="d-block text-center"> 
+                                        <img src="./assets/images/add-yellow.png" class="small-icon" alt="add song"/> 
+                                    </a>
+                                </div>
+                            </div>
+                            
                             <div class="first-music-list-items d-flex py-3 border-bottom text-lightgray">
                                 <div class="first-music-list-items-icon col-1 p-0">
                                     <a href="#" class="d-block text-center"> 
@@ -80,7 +113,7 @@
                                     </a>
                                 </div>
                                 <div class="first-music-list-items-name text-capitalize col-9 px-3 w-100">
-                                    <h5 class="text-truncate">first slow dance</h5>
+                                    <h5 class="text-truncate">air guitar worthy</h5>
                                 </div>
                                 <div class="first-music-list-items-icon col-2 p-0 align-self-center">
                                     <a href="#" class="d-block text-center"> 
@@ -95,22 +128,7 @@
                                     </a>
                                 </div>
                                 <div class="first-music-list-items-name text-capitalize col-9 px-3 w-100">
-                                    <h5 class="text-truncate">first car</h5>
-                                </div>
-                                <div class="first-music-list-items-icon col-2 p-0 align-self-center">
-                                    <a href="#" class="d-block text-center"> 
-                                        <img src="./assets/images/add-gray.png" class="small-icon" alt="search icon"/> 
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="first-music-list-items d-flex py-3 border-bottom text-lightgray">
-                                <div class="first-music-list-items-icon col-1 p-0">
-                                    <a href="#" class="d-block text-center"> 
-                                        <img src="./assets/images/search-gray.png" class="small-icon" alt="search icon"/> 
-                                    </a>
-                                </div>
-                                <div class="first-music-list-items-name text-capitalize col-9 px-3 w-100">
-                                    <h5 class="text-truncate">first date</h5>
+                                    <h5 class="text-truncate">sing-along songs</h5>
                                 </div>
                                 <div class="first-music-list-items-icon col-2 p-0 align-self-center">
                                     <a href="#" class="d-block text-center"> 
