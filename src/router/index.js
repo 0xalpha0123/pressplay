@@ -526,6 +526,32 @@ const routes = [
         }
       },
       {
+        path: "demo-nowplaying-edit",
+        component: () => import("@/views/songstory/demo/nowplayingedit.vue"),
+        name: "demo.nowplayingedit",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            title: "SongStory - Now Playing"
+          }
+        }
+      },
+      {
+        path: "demo-discography",
+        component: () => import("@/views/songstory/demo/discography.vue"),
+        name: "demo.discography",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            title: "SongStory - Discography"
+          }
+        }
+      },
+      {
         path: ":id",
         component: () => import("@/views/songstory/question.vue"),
         name: "songstory.question",
