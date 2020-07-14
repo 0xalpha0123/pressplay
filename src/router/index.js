@@ -513,6 +513,32 @@ const routes = [
         }
       },
       {
+        path: "nowplaying",
+        component: () => import("@/views/songstory/nowplaying.vue"),
+        name: "nowplaying",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            title: "SongStory - Now Playing"
+          }
+        }
+      },
+      {
+        path: "discography",
+        component: () => import("@/views/songstory/discography.vue"),
+        name: "discography",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            title: "SongStory - Now Playing"
+          }
+        }
+      },
+      {
         path: "demo-nowplaying",
         component: () => import("@/views/songstory/demo/nowplaying.vue"),
         name: "demo.nowplaying",
