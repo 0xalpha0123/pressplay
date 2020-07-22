@@ -8,15 +8,16 @@
   >
     <ion-header class="no-style" v-if="showNav">
       <ion-toolbar color="transparent">
-        <ion-title :color="questionColor">Submit Idea</ion-title>
-        <ion-buttons slot="end">
+        <ion-buttons slot="start">
           <ion-button
             :color="questionColor"
             @click.prevent="$emit('songstoryBack')"
           >
-            <icon slot="icon-only" name="close"></icon>
+            <icon slot="icon-only" name="c-rewind-filled"></icon>
           </ion-button>
         </ion-buttons>
+        <!--<ion-title :color="questionColor">Submit Idea</ion-title>-->
+        
       </ion-toolbar>
     </ion-header>
     <ion-content :class="contentCssClass" :style="contentStyle" fullscreen>

@@ -32,16 +32,30 @@
                 </p>
               </ion-text>
             </div>
-            <!-- <div class="ion-text-center">
+            <div class="ion-text-center">
               <ion-slides class="white-butllet" pager="true">
                 <ion-slide>
                   <div class="ion-padding-vertical">
+                    <aspect-ratio
+                      ratio="32:35"
+                      ratio-md="16:9"
+                      ratio-lg="2:1"
+                      class="ion-justify-content-center ion-align-items-center soundbar-bg ion-padding"
+                    >
+                      <h1>
+                        <router-link :to="{ name: 'home' }" v-slot="{ href }">
+                          <a :href="href" title="Go to PressPlay Home">
+                            <i class="img logo-vertical-contrast">
+                              <u>PressPlay</u>
+                            </i>
+                          </a>
+                        </router-link>
+                      </h1>
+                    </aspect-ratio>
                     <ion-text class="intro-text" color="light">
-                      <h2>
-                        Music Lovers Unite
-                      </h2>
+                      
                       <p class="text-large">
-                        Connect with people through the universal language of music, love, and friendship
+                       connect to yourself and others through the universal language of music
                       </p>
                     </ion-text>
                   </div>
@@ -53,7 +67,7 @@
                         Build your SongStory
                       </h2>
                       <p class="text-large">
-                        The "Soundtrack of Your Life": A simple way to make a personal audio-biography
+                        answering simple questions builds the <strong>Soundtrack of Your Life:</strong> a unique overview of your life and personality
                       </p>
                     </ion-text>
                   </div>
@@ -65,7 +79,7 @@
                         Find your SongMate
                       </h2>
                       <p class="text-large">
-                        Find people with similar interests that understand your vibe on a deeper level
+                        a variety of filters allows you to find others whose story aligns with yours - next door, or across the globe
                       </p>
                     </ion-text>
                   </div>
@@ -74,16 +88,16 @@
                   <div class="ion-padding-vertical">
                     <ion-text class="intro-text" color="light">
                       <h2>
-                        Connect Instantly
+                        Press Play to Connect
                       </h2>
                       <p class="text-large">
-                        Hassle-free, endless possibilities to creatively connect with like minded people
+                        Bye bye, small-talk. No more scraping for a topic when you’re Matched by Music. And if words fail? Say it in a song
                       </p>
                     </ion-text>
                   </div>
                 </ion-slide>
               </ion-slides>
-            </div> -->
+            </div>
           </ion-col>
         </ion-row>
         <ion-row class="ion-justify-content-center ion-align-items-center">
@@ -95,7 +109,7 @@
                 expand="block"
                 size="large"
                 @click="navigate"
-                >Let's Get Started</ion-button
+                >Join in</ion-button
               >
             </router-link>
             <router-link :to="{ name: 'login' }" v-slot="{ href, navigate }">

@@ -185,9 +185,9 @@
               >
                 <icon v-bind="item.meta.menu.icon" size="large"></icon>
               </template>
-              <ion-label v-show="isActive">
+              <!-- <ion-label v-show="isActive">
                 {{ item.meta.menu.title }}
-              </ion-label>
+              </ion-label> -->
             </ion-tab-button>
           </router-link>
         </ion-tab-bar>
@@ -696,6 +696,7 @@ ion-app {
   --toolbar-height: 54px;
   --toolbar-offset: 10px;
   --content-height: calc(100vh - var(--toolbar-height));
+
   #main-grid {
     height: var(--content-height);
     overflow: hidden;
@@ -756,6 +757,7 @@ ion-app {
     &.footer-toolbar-style-secondary {
       &:after {
         background-color: var(--ion-color-white);
+        box-shadow: 0px -1px 8px var(--ion-color-white); // C: Responsive
       }
       ion-footer {
         ion-tab-button {
