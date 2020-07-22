@@ -513,6 +513,58 @@ const routes = [
         }
       },
       {
+        path: "nowplaying",
+        component: () => import("@/views/songstory/nowplaying.vue"),
+        name: "nowplaying",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            title: "SongStory - Now Playing"
+          }
+        }
+      },
+      {
+        path: "nowplaying-visitor",
+        component: () => import("@/views/songstory/nowplaying-visitor.vue"),
+        name: "nowplaying-visitor",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            title: "SongStory - Now Playing Visitor"
+          }
+        }
+      },
+      {
+        path: "discography",
+        component: () => import("@/views/songstory/discography.vue"),
+        name: "discography",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            title: "SongStory - Now Playing"
+          }
+        }
+      },
+      {
+        path: "discography-visitor",
+        component: () => import("@/views/songstory/discography-visitor.vue"),
+        name: "discography-visitor",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            title: "SongStory - Discography Visitor"
+          }
+        }
+      },
+      {
         path: "demo-nowplaying",
         component: () => import("@/views/songstory/demo/nowplaying.vue"),
         name: "demo.nowplaying",
