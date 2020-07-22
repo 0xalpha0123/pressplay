@@ -62,6 +62,9 @@
   --ion-color-white-shade: #e0e0e0;
   --ion-color-white-tint: #ffffff;
 
+
+  --ion-color-light-contrast: var(--ion-color-primary);
+
   // Horizontal gradients
   --primary-horizontal-gradient: linear-gradient(270deg, #471B74 0, #713682 80%, #AA2986 100%), var(--ion-color-primary) !important;
   --primary-horizontal-gradient-state: linear-gradient(270deg, #471B74 0, #713682 50%, #AA2986 100%), var(--ion-color-primary-tint) !important;

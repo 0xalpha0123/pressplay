@@ -23,7 +23,7 @@
           <ion-text color="system" slot="end">
             <ion-select
               class="ion-padding-end"
-              interface="popover"
+              interface="action-sheet"
               :value="categoryFilter"
               @ionChange="categoryFilter = $event.target.value"
             >
@@ -47,7 +47,7 @@
             size="small"
             @click.prevent="submitQuestion"
           >
-            <icon name="bulb" color="secondary"></icon>
+            <icon name="c-record-filled" color="secondary" size="large"></icon>
           </ion-fab-button>
         </ion-fab>
       </ion-header>
@@ -81,7 +81,7 @@
                         :disabled="historyIndex == 0"
                         @click.prevent="skipBackward"
                       >
-                        <icon name="play-skip-back"></icon>
+                        <icon name="c-skip-backward-filled"></icon>
                       </ion-fab-button>
                     </ion-col>
                     <ion-col size="auto">
@@ -89,7 +89,7 @@
                         class="bright-vertical-gradient"
                         @click.prevent="editAnswer"
                       >
-                        <icon name="play"></icon>
+                        <icon name="c-play-filled" size="large"></icon>
                       </ion-fab-button>
                     </ion-col>
                     <ion-col size="auto">
@@ -98,7 +98,7 @@
                         size="small"
                         @click.prevent="skipForward"
                       >
-                        <icon name="play-skip-forward"></icon>
+                        <icon name="c-skip-forward-filled"></icon>
                       </ion-fab-button>
                     </ion-col>
                   </ion-row>
@@ -117,7 +117,7 @@
                             v-show="clearingQuestion"
                             slot="start"
                           ></ion-spinner>
-                          Clear
+                          Eject
                         </ion-button>
                       </div>
                     </ion-col>

@@ -49,7 +49,7 @@ const routes = [
       menu: {
         hide: false,
         icon: "c-songmates",
-        priority: 0,
+        priority: 1,
         title: "Matches"
       }
     },
@@ -119,7 +119,7 @@ const routes = [
       menu: {
         hide: false,
         icon: "c-messages",
-        priority: 1,
+        priority: 2,
         title: "Messages"
       }
     },
@@ -189,7 +189,7 @@ const routes = [
       menu: {
         title: "Profile",
         icon: "person-circle",
-        hide: false,
+        hide: true,
         priority: 3
       }
     },
@@ -324,7 +324,7 @@ const routes = [
           menu: {
             title: "My Matches",
             hide: true,
-            priority: 1
+            priority: 2
           }
         }
       }
@@ -339,7 +339,7 @@ const routes = [
       menu: {
         title: "Subscription",
         icon: "c-songstory",
-        hide: false,
+        hide: true,
         priority: 1
       }
     },
@@ -493,7 +493,7 @@ const routes = [
       menu: {
         hide: false,
         icon: "c-songstory",
-        priority: 2,
+        priority: 0,
         title: "SongStory"
       }
     },
@@ -513,41 +513,23 @@ const routes = [
         }
       },
       {
-        path: "nowplaying",
-        component: () => import("@/views/songstory/nowplaying.vue"),
-        name: "nowplaying",
-        meta: {
-          authRequired: true,
-          layout: "navigator",
-          menu: {
-            hide: true,
-            title: "SongStory - Now Playing"
-          }
-        }
-      },
-      {
-        path: "discography",
-        component: () => import("@/views/songstory/discography.vue"),
-        name: "discography",
-        meta: {
-          authRequired: true,
-          layout: "navigator",
-          menu: {
-            hide: true,
-            title: "SongStory - Now Playing"
-          }
-        }
-      },
-      {
         path: "demo-nowplaying",
         component: () => import("@/views/songstory/demo/nowplaying.vue"),
         name: "demo.nowplaying",
         meta: {
-          authRequired: true,
-          layout: "navigator",
           menu: {
-            hide: true,
-            title: "SongStory - Now Playing"
+            hide: true
+          }
+        }
+      },
+      {
+        path: "nowplaying-preview",
+        component: () =>
+          import("@/views/songstory/demo/nowplaying-preview.vue"),
+        name: "nowplaying.preview",
+        meta: {
+          menu: {
+            hide: true
           }
         }
       },
@@ -556,11 +538,8 @@ const routes = [
         component: () => import("@/views/songstory/demo/nowplayingedit.vue"),
         name: "demo.nowplayingedit",
         meta: {
-          authRequired: true,
-          layout: "navigator",
           menu: {
-            hide: true,
-            title: "SongStory - Now Playing"
+            hide: true
           }
         }
       },
@@ -569,11 +548,8 @@ const routes = [
         component: () => import("@/views/songstory/demo/discography.vue"),
         name: "demo.discography",
         meta: {
-          authRequired: true,
-          layout: "navigator",
           menu: {
-            hide: true,
-            title: "SongStory - Discography"
+            hide: true
           }
         }
       },

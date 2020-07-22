@@ -3,7 +3,8 @@ $toolbar-bg-height: 54px;
 ion-header.toolbar-bg {
   --toolbar-height: #{$toolbar-bg-height};
   background: url("./assets/backgrounds/toolbar-header.svg") center bottom repeat-x;
-  padding-bottom: calc(var(--toolbar-height) / 2);
+  background-size: 100%;
+  padding-bottom: calc(var(--toolbar-height));
   ion-toolbar {
     --min-height: var(--toolbar-height);
   }
@@ -16,6 +17,7 @@ ion-footer.toolbar-bg {
     --min-height: var(--toolbar-height);
   }
 }
+
 
 // Browse toolbar
 ion-header.browse-header {
@@ -32,6 +34,12 @@ ion-toolbar.ion-color-primary ion-segment:not(.ion-color) > ion-segment-button {
   --color-checked: var(--ion-color-secondary) !important;
   --indicator-color-checked: var(--ion-color-secondary) !important;
 }
+
+// Sidebar styling
+ion-menu[menu-id="sidebar"] ion-header {
+  border-bottom-left-radius: 11vw; // C: Variable
+  overflow: hidden;
+} 
 
 // No style utility for headers and footers
 @mixin no-style-utility {

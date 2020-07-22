@@ -76,7 +76,7 @@
           </div>
           <div class="actions">
             <button @click="removeSongFromPlaylist(song)" class="delete">
-              <font-awesome-icon icon="times" />
+              x
             </button>
           </div>
         </li>
