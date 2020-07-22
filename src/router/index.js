@@ -586,26 +586,6 @@ const routes = [
         }
       },
       {
-        path: "demo-nowplaying-edit",
-        component: () => import("@/views/songstory/demo/nowplayingedit.vue"),
-        name: "demo.nowplayingedit",
-        meta: {
-          menu: {
-            hide: true
-          }
-        }
-      },
-      {
-        path: "demo-discography",
-        component: () => import("@/views/songstory/demo/discography.vue"),
-        name: "demo.discography",
-        meta: {
-          menu: {
-            hide: true
-          }
-        }
-      },
-      {
         path: ":id",
         component: () => import("@/views/songstory/question.vue"),
         name: "songstory.question",
