@@ -5,7 +5,7 @@
         <ion-row>
           <ion-col size="2">
             <ion-button fill="clear">
-              <img src="./assets/figma/rewind.png" />
+              <img src="../../assets/images/rewind.png" />
             </ion-button>
           </ion-col>
           <ion-col size="8">
@@ -47,7 +47,7 @@
     }
   }
   .preview-wrapper {
-    background: url("./assets/figma/preview-bg.png") 0 100px no-repeat;
+    background: url("../../assets/images/preview-bg.png") 0 100px no-repeat;
     background-size: 100% auto;
     width: 100%;
     height: 100%;
@@ -58,7 +58,7 @@
       width: 134px;
       height: 134px;
       border-radius: 16px;
-      background: url("./assets/figma/come-sail-away.jpeg") 0 0 no-repeat;
+      background: url("../../assets/images/come-sail-away.jpeg") 0 0 no-repeat;
       background-size: cover;
       box-shadow: 0px 0px 11px #FFFFFF;
       position: absolute;
