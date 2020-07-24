@@ -565,23 +565,40 @@ const routes = [
         }
       },
       {
-        path: "demo-nowplaying",
-        component: () => import("@/views/songstory/demo/nowplaying.vue"),
-        name: "demo.nowplaying",
+        path: "discography-preview",
+        component: () =>
+          import("@/views/songstory/discography-preview.vue"),
+        name: "discography.preview",
         meta: {
+          layout: "navigator",
           menu: {
-            hide: true
+            hide: true,
+            title: "SongStory - Discography Preview"
+          }
+        }
+      },
+      {
+        path: "nowplayingsong",
+        component: () => import("@/views/songstory/nowplayingsong.vue"),
+        name: "nowplayingsong",
+        meta: {
+          layout: "navigator",
+          menu: {
+            hide: true,
+            title: "SongStory - Now Playing Song"
           }
         }
       },
       {
         path: "nowplaying-preview",
         component: () =>
-          import("@/views/songstory/demo/nowplaying-preview.vue"),
+          import("@/views/songstory/nowplaying-preview.vue"),
         name: "nowplaying.preview",
         meta: {
+          layout: "navigator",
           menu: {
-            hide: true
+            hide: true,
+            title: "SongStory - Song Preview"
           }
         }
       },

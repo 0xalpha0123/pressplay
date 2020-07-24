@@ -13,7 +13,7 @@
                   <div class="play-pause-btn">
                     <a href="#" class="d-block">
                       <img
-                        src="./demo/assets/images/play-btn.png"
+                        src="../../assets/images/play-btn.png"
                         alt="play pause button"
                       />
                     </a>
@@ -23,7 +23,7 @@
                   </ion-text>
                   <div class="discography-sub-title">your musical autobiography</div>
                   <div class="discography-img">
-                    <img src="./demo/assets/images/discography-img.png" alt="discography image" />
+                    <img src="../../assets/images/discography-img.png" alt="discography image" />
                   </div>
                   <div class="discography-ans">
                     <ion-text color="white">
@@ -32,7 +32,7 @@
                   </div>
                   <div class="round-record">
                     <a href="#">
-                      <img src="./demo/assets/images/round.png" alt="record image" />
+                      <img src="../../assets/images/round.png" alt="record image" />
                     </a>
                   </div>
                 </div>
@@ -63,7 +63,7 @@
                         <ion-item>
                           <ion-avatar class="avatar" slot="start">
                             <img
-                              src="./demo/assets/images/search-purple.png"
+                              src="../../assets/images/search-purple.png"
                               class="small-icon"
                               alt="search icon"
                             />
@@ -73,7 +73,7 @@
                           </ion-label>
                           <ion-avatar class="avatar" slot="end">
                             <img
-                              src="./demo/assets/images/play-icon.png"
+                              src="../../assets/images/play-icon.png"
                               class="small-icon"
                               alt="menu icon"
                             />
@@ -82,7 +82,7 @@
                         <ion-item>
                           <ion-avatar class="avatar" slot="start">
                             <img
-                              src="./demo/assets/images/blue-checkmark.png"
+                              src="../../assets/images/blue-checkmark.png"
                               class="small-icon"
                               alt="search icon"
                             />
@@ -94,7 +94,7 @@
                           </ion-label>
                           <ion-avatar class="avatar" slot="end">
                             <img
-                              src="./demo/assets/images/play-icon.png"
+                              src="../../assets/images/play-icon.png"
                               class="small-icon"
                               alt="menu icon"
                             />
@@ -103,7 +103,7 @@
                         <ion-item>
                           <ion-avatar class="avatar" slot="start">
                             <img
-                              src="./demo/assets/images/search-gray.png"
+                              src="../../assets/images/search-gray.png"
                               class="small-icon"
                               alt="search icon"
                             />
@@ -113,7 +113,7 @@
                           </ion-label>
                           <ion-avatar class="avatar" slot="end">
                             <img
-                              src="./demo/assets/images/play-icon.png"
+                              src="../../assets/images/play-icon.png"
                               class="small-icon"
                               alt="menu icon"
                             />
@@ -122,7 +122,7 @@
                         <ion-item>
                           <ion-avatar class="avatar" slot="start">
                             <img
-                              src="./demo/assets/images/search-gray.png"
+                              src="../../assets/images/search-gray.png"
                               class="small-icon"
                               alt="search icon"
                             />
@@ -132,7 +132,7 @@
                           </ion-label>
                           <ion-avatar class="avatar" slot="end">
                             <img
-                              src="./demo/assets/images/play-icon.png"
+                              src="../../assets/images/play-icon.png"
                               class="small-icon"
                               alt="menu icon"
                             />
@@ -141,7 +141,7 @@
                         <ion-item>
                           <ion-avatar class="avatar" slot="start">
                             <img
-                              src="./demo/assets/images/search-gray.png"
+                              src="../../assets/images/search-gray.png"
                               class="small-icon"
                               alt="search icon"
                             />
@@ -151,7 +151,7 @@
                           </ion-label>
                           <ion-avatar class="avatar" slot="end">
                             <img
-                              src="./demo/assets/images/play-icon.png"
+                              src="../../assets/images/play-icon.png"
                               class="small-icon"
                               alt="menu icon"
                             />

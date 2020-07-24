@@ -12,14 +12,14 @@
                 <div class="playing-box">
                   <div class="play-pause-btn">
                     <a href="#">
-                      <img src="./demo/assets/images/play-btn.png" alt="play pause button" />
+                      <img src="../../assets/images/play-btn.png" alt="play pause button" />
                     </a>
                   </div>
                   <div class="play-on-off">
                     <label>
                         <input type="checkbox" />
                         <span>
-                            <img src="../../assets/images/songstory/nowplaying.png" alt="play pause button" />
+                            <img src="../../assets/images/nowplaying.png" alt="play pause button" />
                         </span>
                     </label> 
                   </div>
@@ -28,12 +28,12 @@
                   </ion-text>
                   <div class="discography-sub-title">caitlin’s currently on repeat</div>
                   <div class="discography-img">
-                    <img src="./demo/assets/images/playing-img.png" alt="discography image" />
+                    <img src="../../assets/images/playing-img.png" alt="discography image" />
                   </div>
                   <div class="discography-ans">
                     <ion-text color="white">
                       <div class="album-img">
-                        <img src="../../assets/images/songstory/profile.png" />
+                        <avatar size="lg"></avatar>
                       </div>
                       <h3>10 answers</h3>
                     </ion-text>
@@ -50,13 +50,13 @@
                             
                             <div class="album_body_list">
                                 <a href="#">
-                                    <img src="../../assets/images/songstory/album1.png" />
+                                    <img src="../../assets/images/album1.png" />
                                 </a>
                                 <a href="#">
-                                    <img src="../../assets/images/songstory/album.png" />
+                                    <img src="../../assets/images/album.png" />
                                 </a>
                                 <a href="#">
-                                    <img src="../../assets/images/songstory/album.png" />
+                                    <img src="../../assets/images/album.png" />
                                 </a>
                             </div>
                         </div>
@@ -66,13 +66,13 @@
                         
                         <div class="album_body_list">
                             <a href="#">
-                                <img src="../../assets/images/songstory/album.png" />
+                                <img src="../../assets/images/album.png" />
                             </a>
                             <a href="#">
-                                <img src="../../assets/images/songstory/album.png" />
+                                <img src="../../assets/images/album.png" />
                             </a>
                             <a href="#">
-                                <img src="../../assets/images/songstory/album.png" />
+                                <img src="../../assets/images/album.png" />
                             </a>
                         </div>
                     </div>
@@ -81,15 +81,15 @@
                         
                         <div class="album_body_list">
                             <a href="#">
-                                <img src="../../assets/images/songstory/moods.png" />
+                                <img src="../../assets/images/moods.png" />
                                 <h5>high school</h5>
                             </a>
                             <a href="#">
-                                <img src="../../assets/images/songstory/moods.png" />
+                                <img src="../../assets/images/moods.png" />
                                 <h5>childhood</h5>
                             </a>
                             <a href="#">
-                                <img src="../../assets/images/songstory/moods.png" />
+                                <img src="../../assets/images/moods.png" />
                                 <h5>college</h5>
                             </a>
                         </div>
@@ -99,15 +99,15 @@
                         
                         <div class="album_body_list">
                             <a href="#">
-                                <img src="../../assets/images/songstory/moods.png" />
+                                <img src="../../assets/images/moods.png" />
                                 <h5>high school</h5>
                             </a>
                             <a href="#">
-                                <img src="../../assets/images/songstory/moods.png" />
+                                <img src="../../assets/images/moods.png" />
                                 <h5>childhood</h5>
                             </a>
                             <a href="#">
-                                <img src="../../assets/images/songstory/moods.png" />
+                                <img src="../../assets/images/moods.png" />
                                 <h5>college</h5>
                             </a>
                         </div>
@@ -122,3 +122,9 @@
     </ion-content>
   </ion-page>
 </template>
+<script>
+import UserData from "@/mixins/userData.js";
+export default {
+  mixins: [UserData]
+}
+</script>
