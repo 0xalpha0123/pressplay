@@ -73,7 +73,7 @@
                           </ion-label>
                           <ion-avatar class="avatar" slot="end">
                             <img
-                              src="../../assets/images/play-icon.png"
+                              src="../../assets/images/play.png"
                               class="small-icon"
                               alt="menu icon"
                             />
@@ -94,7 +94,7 @@
                           </ion-label>
                           <ion-avatar class="avatar" slot="end">
                             <img
-                              src="../../assets/images/play-icon.png"
+                              src="../../assets/images/play.png"
                               class="small-icon"
                               alt="menu icon"
                             />
@@ -113,7 +113,7 @@
                           </ion-label>
                           <ion-avatar class="avatar" slot="end">
                             <img
-                              src="../../assets/images/play-icon.png"
+                              src="../../assets/images/play.png"
                               class="small-icon"
                               alt="menu icon"
                             />
@@ -132,7 +132,7 @@
                           </ion-label>
                           <ion-avatar class="avatar" slot="end">
                             <img
-                              src="../../assets/images/play-icon.png"
+                              src="../../assets/images/play.png"
                               class="small-icon"
                               alt="menu icon"
                             />
@@ -151,7 +151,7 @@
                           </ion-label>
                           <ion-avatar class="avatar" slot="end">
                             <img
-                              src="../../assets/images/play-icon.png"
+                              src="../../assets/images/play.png"
                               class="small-icon"
                               alt="menu icon"
                             />

@@ -651,6 +651,32 @@ const routes = [
         }
       },
       {
+        path: "viewanswer-visitor",
+        component: () => import("@/views/songstory/viewanswer-visitor.vue"),
+        name: "viewanswer-visitor",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            title: "SongStory - View Answer Visitor"
+          }
+        }
+      },
+      {
+        path: "viewanswer-personal",
+        component: () => import("@/views/songstory/viewanswer-personal.vue"),
+        name: "viewanswer-personal",
+        meta: {
+          authRequired: true,
+          layout: "navigator",
+          menu: {
+            hide: true,
+            title: "SongStory - View Answer Personal"
+          }
+        }
+      },
+      {
         path: ":id",
         component: () => import("@/views/songstory/question.vue"),
         name: "songstory.question",
