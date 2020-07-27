@@ -132,7 +132,7 @@ const routes = [
     meta: {
       authRequired: true,
       menu: {
-        hide: true,
+        hide: true
       }
     }
   },
@@ -614,8 +614,7 @@ const routes = [
       },
       {
         path: "discography-preview",
-        component: () =>
-          import("@/views/songstory/discography-preview.vue"),
+        component: () => import("@/views/songstory/discography-preview.vue"),
         name: "discography.preview",
         meta: {
           layout: "navigator",
@@ -639,8 +638,7 @@ const routes = [
       },
       {
         path: "nowplaying-preview",
-        component: () =>
-          import("@/views/songstory/nowplaying-preview.vue"),
+        component: () => import("@/views/songstory/nowplaying-preview.vue"),
         name: "nowplaying.preview",
         meta: {
           layout: "navigator",
