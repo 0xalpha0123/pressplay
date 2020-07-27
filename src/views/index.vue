@@ -32,7 +32,7 @@
                 </p>
               </ion-text>
             </div>
-            <div class="ion-text-center">
+            <!-- <div class="ion-text-center">
               <ion-slides class="white-butllet" pager="true">
                 <ion-slide>
                   <div class="ion-padding-vertical">
@@ -97,7 +97,7 @@
                   </div>
                 </ion-slide>
               </ion-slides>
-            </div>
+            </div> -->
           </ion-col>
         </ion-row>
         <ion-row class="ion-justify-content-center ion-align-items-center">

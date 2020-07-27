@@ -111,6 +111,54 @@ const routes = [
     ]
   },
   {
+    path: "/demo_messages",
+    name: "demo_messages",
+    component: () => import("@/views/messages/demo/messages.vue"),
+    meta: {
+      authRequired: true,
+      layout: "navigator",
+      menu: {
+        hide: true,
+        icon: "c-messages",
+        priority: 2,
+        title: "Messages"
+      }
+    }
+  },
+  {
+    path: "/demo_beforemessages",
+    name: "demo_beforemessages",
+    component: () => import("@/views/messages/demo/beforeMessage.vue"),
+    meta: {
+      authRequired: true,
+      menu: {
+        hide: true,
+      }
+    }
+  },
+  {
+    path: "/demo_mixtape",
+    name: "demo_mixtape",
+    component: () => import("@/views/messages/demo/mixTape.vue"),
+    meta: {
+      authRequired: true,
+      menu: {
+        hide: true
+      }
+    }
+  },
+  {
+    path: "/demo_buildmixtape",
+    name: "demo_buildmixtape",
+    component: () => import("@/views/messages/demo/buildMixtape.vue"),
+    meta: {
+      authRequired: true,
+      menu: {
+        hide: true
+      }
+    }
+  },
+  {
     path: "/messages",
     component: () => import("@/views/messages/index.vue"),
     meta: {

@@ -4,8 +4,15 @@
       <ion-toolbar :color="layoutVars.header.toolbar.color" ref="headerToolbar">
         <ion-buttons
           slot="start"
-          v-if="hasMenubar || layoutVars.header.toolbar.startButtons.length > 0"
+          v-if="hasMenubar || hasSearch || layoutVars.header.toolbar.startButtons.length > 0"
         >
+          <ion-button v-if="hasSearch" @click.prevent="toggleSearch">
+            <icon
+              name="search"
+              :color="layoutVars.search.color"
+              slot="icon-only"
+            ></icon>
+          </ion-button>
           <ion-button v-if="hasMenubar" @click.prevent="toggleMenubar">
             <icon
               :name="layoutVars.menubar.icon.name"
@@ -561,6 +568,10 @@ export default {
       this.$refs.sidebar.open();
     },
 
+    toggleSearch() {
+
+    },
+
     toggleMenubar() {
       if (this.windowWidth >= 992 && this.layoutVars.menubar.inline) {
         this.menubarOpened = !this.menubarOpened;
@@ -605,6 +616,10 @@ export default {
         this.layoutVars.menubar.inline
         ? 9
         : 12;
+    },
+
+    hasSearch() {
+      return this.layoutVars.search && this.layoutVars.search.show;
     },
 
     hasMenubar() {

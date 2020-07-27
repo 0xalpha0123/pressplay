@@ -3,7 +3,7 @@
     <ion-card
       class="box-shadow content-card max-width primary-vertical-gradient"
     >
-      <ion-grid class="align-content-center">
+      <ion-grid class="align-content-center matches_container">
         <ion-row
           class="ion-align-items-center ion-justify-content-center"
           v-show="songmate && !loading && !error"
@@ -201,17 +201,14 @@
           v-show="!songmate && !loading && !error"
         >
           <ion-col size="12" size-md="6">
+            <div class="no_matches_image" />
             <div
-              class="ion-text-center ion-margin-vertical ion-padding-vertical"
+              class="ion-text-center ion-margin-vertical ion-padding-vertical no_match_text"
             >
-              <ion-text color="light">
-                <h1>
-                  You don't have any new matches
-                </h1>
-                <h3>
-                  Try the following to get more matches
-                </h3>
-              </ion-text>
+              <h1>
+                zero is the lonliest number
+              </h1>
+              <p>(but it doesn’t have to be...)</p>
             </div>
             <ion-grid class="ion-margin-top">
               <ion-row
@@ -230,7 +227,7 @@
                       size="large"
                       @click="navigate"
                     >
-                      Add to SongStory
+                      Go to SongStory
                     </ion-button>
                   </router-link>
                 </ion-col>
@@ -240,37 +237,15 @@
               >
                 <ion-col size="12" size-xl="8">
                   <ion-button
-                    color="light"
                     expand="block"
                     shape="round"
                     size="large"
+                    color="light"
+                    class="light_button"
                     @click="$navigator.openMenubar()"
                   >
-                    Adjust Filters
+                    Adjust Match Filters
                   </ion-button>
-                </ion-col>
-              </ion-row>
-              <ion-row
-                class="ion-align-items-center ion-justify-content-center"
-              >
-                <ion-col size="12" size-xl="8">
-                  <router-link
-                    :to="{
-                      name: 'profile.settings.seeking'
-                    }"
-                    v-slot="{ href, navigate }"
-                  >
-                    <ion-button
-                      color="light"
-                      expand="block"
-                      :href="href"
-                      shape="round"
-                      size="large"
-                      @click="navigate"
-                    >
-                      Adjust Settings
-                    </ion-button>
-                  </router-link>
                 </ion-col>
               </ion-row>
               <ion-row
@@ -853,6 +828,32 @@ export default {
     border-radius: 8px;
     overflow: hidden;
   }
+}
+.no_matches_image{
+  width: 190px;
+  height: 180px;
+  background: #5D148C;
+  border-radius: 100px;
+  margin: 0 auto;
+}
+.matches_container{
+  background: radial-gradient(61.96% 51.91% at 51.68% 71.93%, #AA2986 0%, #8C3084 14%, #783482 27%, #713682 36%, #471B74 90%);
+}
+.no_match_text{
+  width: 80%;
+  margin: auto;
+  color: white;
+  h1{
+    font-size: 29px;
+  }
+  p{
+    font-size: 20px;
+    margin: 0;
+  }
+}
+.light_button{
+  --ion-color-base: rgba(255, 255, 255, 0.15) !important;
+  --ion-color-contrast: white !important;
 }
 ion-card.match-card {
   --border-radius: 12px;
