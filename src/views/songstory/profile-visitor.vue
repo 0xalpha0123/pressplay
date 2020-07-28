@@ -94,6 +94,166 @@
               </div>
             </ion-col>
           </ion-row>
+          <ion-row class="ion-justify-content-center img-list-wrapper">
+            <ion-col>
+              <img src="../../assets/images/Group 10.png" />
+              <div class="img-list-buttons">
+                <img src="../../assets/images/Group 12.png" />
+                <img src="../../assets/images/Group 34.png" />
+                <img src="../../assets/images/Group 17.png" />
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div class="playing-box">
+                  <div class="discography-img">
+                    <img src="../../assets/images/playing-img.png" alt="discography image" />
+                  </div>
+                  <div class="discography-ans">
+                    <div>
+                        <img src="../../assets/images/Now Playing Icon.png" />
+                      <div>
+                        <ion-text color="white">
+                          <h4>now playing</h4>
+                        </ion-text>
+                        <ion-text color="warning">
+                          <label>22 Matches</label>
+                        </ion-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-list lines="full">
+                <ion-item>
+                  <ion-avatar class="avatar" slot="start">
+                    <img
+                      src="../../assets/images/md-close.png"
+                      class="small-icon"
+                      alt="search icon"
+                    />
+                  </ion-avatar>
+                  <ion-label class="text-capitalize">
+                    <h5>best day of your life song</h5>
+                    <h6>Love Will Find a Way</h6>
+                    <ion-text color="medium" class="text-small">Mike Love</ion-text>
+                  </ion-label>
+                  <ion-avatar class="avatar" slot="end">
+                    <img
+                      src="../../assets/images/play.png"
+                      class="small-icon"
+                      alt="menu icon"
+                    />
+                  </ion-avatar>
+                </ion-item>
+                <ion-item>
+                  <ion-avatar class="avatar" slot="start">
+                    <img
+                      src="../../assets/images/blue-check.png"
+                      class="small-icon"
+                      alt="search icon"
+                    />
+                  </ion-avatar>
+                  <ion-label class="text-capitalize">
+                    <h5>first kiss song</h5>
+                    <h6>Buddy Holly</h6>
+                    <ion-text color="medium" class="text-small">Weezer</ion-text>
+                  </ion-label>
+                  <ion-avatar class="avatar" slot="end">
+                    <img
+                      src="../../assets/images/play.png"
+                      class="small-icon"
+                      alt="menu icon"
+                    />
+                  </ion-avatar>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <div class="view-btn-wrapper">
+            <div class="view-all">
+              View All
+            </div>
+          </div>
+          <ion-row>
+            <ion-col>
+              <div class="discography-box">
+                  <div class="discography-img">
+                    <img src="../../assets/images/discography-img.png" alt="discography image" />
+                  </div>
+                  <div class="discography-ans">
+                    <div>
+                        <img src="../../assets/images/Discography.png" />
+                      <div>
+                        <ion-text color="white">
+                          <h4>discography</h4>
+                        </ion-text>
+                        <ion-text color="warning">
+                          <label>10 Matches</label>
+                        </ion-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-list lines="full">
+                <ion-item>
+                  <ion-avatar class="avatar" slot="start">
+                    <img
+                      src="../../assets/images/blue-check.png"
+                      class="small-icon"
+                      alt="search icon"
+                    />
+                  </ion-avatar>
+                  <ion-label class="text-capitalize">
+                    <h5>best day of your life song</h5>
+                    <h6>Love Will Find a Way</h6>
+                    <ion-text color="medium" class="text-small">Mike Love</ion-text>
+                  </ion-label>
+                  <ion-avatar class="avatar" slot="end">
+                    <img
+                      src="../../assets/images/play.png"
+                      class="small-icon"
+                      alt="menu icon"
+                    />
+                  </ion-avatar>
+                </ion-item>
+                <ion-item>
+                  <ion-avatar class="avatar" slot="start">
+                    <img
+                      src="../../assets/images/blue-check.png"
+                      class="small-icon"
+                      alt="search icon"
+                    />
+                  </ion-avatar>
+                  <ion-label class="text-capitalize">
+                    <h5>first kiss song</h5>
+                    <h6>Buddy Holly</h6>
+                    <ion-text color="medium" class="text-small">Weezer</ion-text>
+                  </ion-label>
+                  <ion-avatar class="avatar" slot="end">
+                    <img
+                      src="../../assets/images/play.png"
+                      class="small-icon"
+                      alt="menu icon"
+                    />
+                  </ion-avatar>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <div class="view-btn-wrapper">
+            <div class="view-all">
+              View All
+            </div>
+          </div>
         </ion-grid>
       </ion-card>
     </ion-content>
@@ -187,5 +347,52 @@
   font-size: 16px;
   margin-top: 0;
   margin-bottom: 0;
+}
+.img-list-wrapper {
+  position: relative;
+}
+.img-list-wrapper .img-list-buttons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-list-buttons img {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+}
+.discography-ans > div {
+  display: flex;
+  align-items: center;
+}
+.discography-ans img {
+  width: 41px;
+  height: 41px;
+  margin-right: 15px;
+}
+.discography-ans h4 {
+  margin-bottom: 0;
+  margin-top: 0;
+  font-size: 27px;
+}
+.view-btn-wrapper {
+  text-align: center;
+}
+.view-all {
+  background: linear-gradient(270deg, #FF26A8 0%, #F2C94C 100%);
+  border-radius: 48px;
+  display: inline-flex;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 22px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  padding: 10px 50px;
+  margin-bottom: 15px;
 }
 </style>
