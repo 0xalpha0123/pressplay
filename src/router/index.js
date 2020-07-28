@@ -702,6 +702,19 @@ const routes = [
         }
       }
     ]
+  },
+  {
+    path: "/profile-visitor",
+    component: () => import("@/views/songstory/profile-visitor.vue"),
+    name: "profile-visitor",
+    meta: {
+      authRequired: true,
+      layout: "navigator",
+      menu: {
+        title: "Profile Visitor",
+        hide: true
+      }
+    }
   }
 ];
 
