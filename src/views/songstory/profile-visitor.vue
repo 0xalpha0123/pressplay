@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-    <ion-content :scrollEvents="true">
+    <ion-content :scrollEvents="!isOpen">
       <ion-card color="white" class="main-playing box-shadow content-card max-width">
         <ion-grid class="ion-no-padding visitor">
           <ion-row class="ion-justify-content-center">
@@ -82,7 +82,7 @@
               </div>
             </ion-col>
             <ion-col size="6">
-              <div class="ion-text-center gender-detail">
+              <div class="ion-text-center gender-detail" @click="togglePopup">
                 <img src="../../assets/images/Group 29.png" />
                 <div>
                   <h2>
@@ -107,23 +107,23 @@
           <ion-row>
             <ion-col>
               <div class="playing-box">
-                  <div class="discography-img">
-                    <img src="../../assets/images/playing-img.png" alt="discography image" />
-                  </div>
-                  <div class="discography-ans">
+                <div class="discography-img">
+                  <img src="../../assets/images/playing-img.png" alt="discography image" />
+                </div>
+                <div class="discography-ans">
+                  <div>
+                    <img src="../../assets/images/Now Playing Icon.png" />
                     <div>
-                        <img src="../../assets/images/Now Playing Icon.png" />
-                      <div>
-                        <ion-text color="white">
-                          <h4>now playing</h4>
-                        </ion-text>
-                        <ion-text color="warning">
-                          <label>22 Matches</label>
-                        </ion-text>
-                      </div>
+                      <ion-text color="white">
+                        <h4>now playing</h4>
+                      </ion-text>
+                      <ion-text color="warning">
+                        <label>22 Matches</label>
+                      </ion-text>
                     </div>
                   </div>
                 </div>
+              </div>
             </ion-col>
           </ion-row>
           <ion-row>
@@ -143,11 +143,7 @@
                     <ion-text color="medium" class="text-small">Mike Love</ion-text>
                   </ion-label>
                   <ion-avatar class="avatar" slot="end">
-                    <img
-                      src="../../assets/images/play.png"
-                      class="small-icon"
-                      alt="menu icon"
-                    />
+                    <img src="../../assets/images/play.png" class="small-icon" alt="menu icon" />
                   </ion-avatar>
                 </ion-item>
                 <ion-item>
@@ -164,41 +160,35 @@
                     <ion-text color="medium" class="text-small">Weezer</ion-text>
                   </ion-label>
                   <ion-avatar class="avatar" slot="end">
-                    <img
-                      src="../../assets/images/play.png"
-                      class="small-icon"
-                      alt="menu icon"
-                    />
+                    <img src="../../assets/images/play.png" class="small-icon" alt="menu icon" />
                   </ion-avatar>
                 </ion-item>
               </ion-list>
             </ion-col>
           </ion-row>
           <div class="view-btn-wrapper">
-            <div class="view-all">
-              View All
-            </div>
+            <div class="view-all">View All</div>
           </div>
           <ion-row>
             <ion-col>
               <div class="discography-box">
-                  <div class="discography-img">
-                    <img src="../../assets/images/discography-img.png" alt="discography image" />
-                  </div>
-                  <div class="discography-ans">
+                <div class="discography-img">
+                  <img src="../../assets/images/discography-img.png" alt="discography image" />
+                </div>
+                <div class="discography-ans">
+                  <div>
+                    <img src="../../assets/images/Discography.png" />
                     <div>
-                        <img src="../../assets/images/Discography.png" />
-                      <div>
-                        <ion-text color="white">
-                          <h4>discography</h4>
-                        </ion-text>
-                        <ion-text color="warning">
-                          <label>10 Matches</label>
-                        </ion-text>
-                      </div>
+                      <ion-text color="white">
+                        <h4>discography</h4>
+                      </ion-text>
+                      <ion-text color="warning">
+                        <label>10 Matches</label>
+                      </ion-text>
                     </div>
                   </div>
                 </div>
+              </div>
             </ion-col>
           </ion-row>
           <ion-row>
@@ -218,11 +208,7 @@
                     <ion-text color="medium" class="text-small">Mike Love</ion-text>
                   </ion-label>
                   <ion-avatar class="avatar" slot="end">
-                    <img
-                      src="../../assets/images/play.png"
-                      class="small-icon"
-                      alt="menu icon"
-                    />
+                    <img src="../../assets/images/play.png" class="small-icon" alt="menu icon" />
                   </ion-avatar>
                 </ion-item>
                 <ion-item>
@@ -239,26 +225,37 @@
                     <ion-text color="medium" class="text-small">Weezer</ion-text>
                   </ion-label>
                   <ion-avatar class="avatar" slot="end">
-                    <img
-                      src="../../assets/images/play.png"
-                      class="small-icon"
-                      alt="menu icon"
-                    />
+                    <img src="../../assets/images/play.png" class="small-icon" alt="menu icon" />
                   </ion-avatar>
                 </ion-item>
               </ion-list>
             </ion-col>
           </ion-row>
           <div class="view-btn-wrapper">
-            <div class="view-all">
-              View All
-            </div>
+            <div class="view-all">View All</div>
           </div>
         </ion-grid>
       </ion-card>
+      <gender-popover :isOpen="isOpen" :togglePopup="togglePopup" />
     </ion-content>
   </ion-page>
 </template>
+<script>
+import GenderPopover from "./gender-popover";
+export default {
+  components: { GenderPopover },
+  data() {
+    return {
+      isOpen: false
+    };
+  },
+  methods: {
+    togglePopup() {
+      this.isOpen = !this.isOpen;
+    }
+  }
+};
+</script>
 <style scoped>
 .profile-arrow-dropdown {
   position: absolute;
@@ -384,13 +381,13 @@
   text-align: center;
 }
 .view-all {
-  background: linear-gradient(270deg, #FF26A8 0%, #F2C94C 100%);
+  background: linear-gradient(270deg, #ff26a8 0%, #f2c94c 100%);
   border-radius: 48px;
   display: inline-flex;
   font-weight: 600;
   font-size: 22px;
   line-height: 22px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: uppercase;
   padding: 10px 50px;
   margin-bottom: 15px;
