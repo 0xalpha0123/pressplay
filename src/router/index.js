@@ -715,6 +715,19 @@ const routes = [
         hide: true
       }
     }
+  },
+  {
+    path: "/new-profile",
+    component: () => import("@/views/songstory/new-profile.vue"),
+    name: "new-profile",
+    meta: {
+      authRequired: true,
+      layout: "navigator",
+      menu: {
+        title: "New Profile",
+        hide: true
+      }
+    }
   }
 ];
 
