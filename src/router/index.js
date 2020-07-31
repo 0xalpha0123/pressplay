@@ -728,6 +728,19 @@ const routes = [
         hide: true
       }
     }
+  },
+  {
+    path: "/profile-view",
+    component: () => import("@/views/songstory/profile-view.vue"),
+    name: "profile-view",
+    meta: {
+      authRequired: true,
+      layout: "navigator",
+      menu: {
+        title: "View Profile",
+        hide: true
+      }
+    }
   }
 ];
 
