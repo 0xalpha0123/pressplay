@@ -3,22 +3,11 @@
     <div class="background">
       <ion-row class="menu_container ion-padding-start ion-padding-end ion-align-items-center ion-justify-content-between">
         <icon name="options" size="large" />
-        <h4>songmates</h4>
+        <h4>ejected</h4>
         <div @click="toggleMenubar()">
           <icon name="menu" size="large" />
         </div>
       </ion-row>
-      <div class="friends_container">
-        <div v-for="(songmate, index) in songmates" v-bind:key="index">
-          <div class="platinum friend_item" v-if="songmate.type === 'platinum'">
-            <img class="avatar" :src="songmate.img || require('@/assets/images/avatar.png')" />
-          </div>
-          <div class="favorite friend_item" v-if="songmate.type === 'favorite'">
-            <img src="@/assets/images/favorite.png" class="heart" />
-            <img class="avatar" :src="songmate.img || require('@/assets/images/avatar.png')" />
-          </div>
-        </div>
-      </div>
     </div>
     <div class="message_container">
       <ion-row class="message_heading">
@@ -27,6 +16,17 @@
           <span>{{ this.filters[this.selected_filter] }}</span>
           <icon name="caret-down-outline"></icon>
         </ion-row>
+      </ion-row>
+      <ion-row class="eject_tabs">
+        <ion-col size="4">
+          <h3 v-bind:class="{ active: eject_tab === 'questions'}" @click="eject_tab = 'questions'">questions</h3>
+        </ion-col>
+        <ion-col size="4">
+          <h3 v-bind:class="{ active: eject_tab === 'matches'}" @click="eject_tab = 'matches'">matches</h3>
+        </ion-col>
+        <ion-col size="4">
+          <h3 v-bind:class="{ active: eject_tab === 'messages'}" @click="eject_tab = 'messages'">messages</h3>
+        </ion-col>
       </ion-row>
       <ion-list class="message_list">
         <ion-item v-for="(songmate, m_index) in songmates" v-bind:key="m_index">
@@ -44,6 +44,9 @@
             <p>
               {{ songmate.text }}
             </p>
+          </div>
+          <div @click="eject_function(songmate)" slot="end">
+            <icon name="c-eject-color" size="large" />
           </div>
         </ion-item>
       </ion-list>
@@ -117,9 +120,10 @@ export default {
         },
       ],
       filters: [
-        "Best Match", "Nearest to", "Recently Connected", "Recently Updated/Last Online"
+        "Recently Cleared", "Alphabetical"
       ],
-      selected_filter: 0
+      selected_filter: 0,
+      eject_tab: ''
     }
   },
   watch: {
@@ -140,6 +144,9 @@ export default {
     }
   },
   methods: {
+    eject_function(mate) {
+      console.log(mate);
+    },
     toggleMenubar() {
       document.querySelector("ion-menu-controller").open("end");
     },
@@ -238,7 +245,7 @@ export default {
 <style lang="scss" scoped>
   .background {
     width: 100%;
-    padding-bottom: 12px;
+    padding: 0 8px 16px;
     background: linear-gradient(172.22deg, #471B74 0.35%, #713682 80.95%, #AA2986 98.89%);
     border-radius: 0px 0px 0px 42px;
     .menu_container{
@@ -258,6 +265,18 @@ export default {
       display: flex;
       margin-top: 16px;
       margin-left: 11px;
+    }
+  }
+  .eject_tabs{
+    h3{
+      color: #9B51E0;
+      font-size: 16px;
+      padding: 8px 0;
+      text-align: center;
+      &.active{
+        border: 1px solid #CF9BFF;
+        border-radius: 50px;
+      }
     }
   }
   .message_heading{

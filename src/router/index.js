@@ -182,6 +182,61 @@ const routes = [
     }
   },
   {
+    path: "/demo_ejected",
+    component: () => import("@/views/slidemenu/demo_ejected.vue"),
+    name: "demo_ejected",
+    meta: {
+      authRequired: true,
+      menu: {
+        hide: true
+      }
+    }
+  },
+  {
+    path: "/demo_settings",
+    component: () => import("@/views/slidemenu/demo_settings.vue"),
+    name: "demo_settings",
+    meta: {
+      authRequired: true,
+      menu: {
+        hide: true
+      }
+    }
+  },
+  {
+    path: "/demo_helpdesk",
+    component: () => import("@/views/slidemenu/demo_helpdesk.vue"),
+    name: "demo_helpdesk",
+    meta: {
+      authRequired: true,
+      menu: {
+        hide: true
+      }
+    }
+  },
+  {
+    path: "/demo_about",
+    component: () => import("@/views/slidemenu/demo_about.vue"),
+    name: "demo_about",
+    meta: {
+      authRequired: true,
+      menu: {
+        hide: true
+      }
+    }
+  },
+  {
+    path: "/demo_terms",
+    component: () => import("@/views/slidemenu/demo_terms.vue"),
+    name: "demo_terms",
+    meta: {
+      authRequired: true,
+      menu: {
+        hide: true
+      }
+    }
+  },
+  {
     path: "/messages",
     component: () => import("@/views/messages/index.vue"),
     meta: {
