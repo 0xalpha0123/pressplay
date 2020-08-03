@@ -4,11 +4,13 @@ import qs from "querystring";
 const spotifyCredentials = { // App: PressPlay
   clientId: "fd07e277de1a449685ef412053131dfe",
   clientSecret: "b3fdd9d0d1594d03988cb3d20d567ce7", // Can be rest in Spotify Developer Account
-  scope: "user-read-playback-position user-read-private user-read-email playlist-read-private" +  
-  " user-library-read user-library-modify user-top-read playlist-read-collaborative" + 
-  " playlist-modify-public playlist-modify-private user-follow-read user-follow-modify" + 
-  " user-read-playback-state user-read-currently-playing user-modify-playback-state user-read-recently-played"
-}
+  scope:
+    "app-remote-control user-read-private user-read-email playlist-read-private " +
+    "user-library-read user-library-modify user-top-read playlist-read-collaborative " +
+    "playlist-modify-public playlist-modify-private user-follow-read user-follow-modify " +
+    "user-read-playback-state user-read-currently-playing user-modify-playback-state user-read-recently-played " +
+    "streaming app-remote-control"
+};
 
 const initialState = () => ({
   spotifyToken: null

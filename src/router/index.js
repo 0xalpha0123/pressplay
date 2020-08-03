@@ -159,6 +159,29 @@ const routes = [
     }
   },
   {
+    path: "/demo_matches",
+    component: () => import("@/views/matches/demo/matches.vue"),
+    name: "demo_matches",
+    meta: {
+      authRequired: true,
+      layout: "navigator",
+      menu: {
+        hide: true,
+      }
+    }
+  },
+  {
+    path: "/demo_songmates",
+    component: () => import("@/views/slidemenu/demo_songmates.vue"),
+    name: "demo_songmates",
+    meta: {
+      authRequired: true,
+      menu: {
+        hide: true
+      }
+    }
+  },
+  {
     path: "/messages",
     component: () => import("@/views/messages/index.vue"),
     meta: {

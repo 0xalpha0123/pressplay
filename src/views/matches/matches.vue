@@ -264,6 +264,10 @@
                   </ion-button>
                 </ion-col>
               </ion-row>
+              <ion-row class="icons_row">
+                <img src="@/assets/images/unverified.png" style="width: 32px" />
+                <icon name="c-clock" size="large" />
+              </ion-row>
             </ion-grid>
           </ion-col>
         </ion-row>
@@ -835,6 +839,14 @@ export default {
   background: #5D148C;
   border-radius: 100px;
   margin: 0 auto;
+}
+.icons_row{
+  position: absolute;
+  bottom: 0px;
+  right: 24px;
+  img {
+    margin-right: 12px;
+  }
 }
 .matches_container{
   background: radial-gradient(61.96% 51.91% at 51.68% 71.93%, #AA2986 0%, #8C3084 14%, #783482 27%, #713682 36%, #471B74 90%);
