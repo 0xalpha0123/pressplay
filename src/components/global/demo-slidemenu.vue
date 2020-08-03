@@ -41,7 +41,7 @@
             <icon name="c-heart" />
             <div class="notification">11</div>
           </div>
-          <h3 class="item_text">favorites</h3>
+          <h3 class="item_text">likes</h3>
           <p class="item_text2" slot="end">99</p>
         </ion-item>
         <ion-item>
@@ -49,7 +49,7 @@
             <icon name="c-cassette2" />
             <div class="notification">2</div>
           </div>
-          <h3 class="item_text">favorites</h3>
+          <h3 class="item_text">mix tapes</h3>
           <p class="item_text2" slot="end">11</p>
         </ion-item>
         <ion-item>
