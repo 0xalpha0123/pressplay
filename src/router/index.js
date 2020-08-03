@@ -605,8 +605,11 @@ const routes = [
       },
       {
         path: "verify",
+        component: () => import("@/views/signup/verify.vue"),
         name: "signup.verify",
-        component: () => import("@/views/signup/verify.vue")
+        meta: {
+          authRequired: true
+        }
       }
     ]
   },
