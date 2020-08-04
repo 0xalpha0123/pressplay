@@ -166,7 +166,7 @@ const routes = [
       authRequired: true,
       layout: "navigator",
       menu: {
-        hide: true,
+        hide: true
       }
     }
   },
@@ -612,13 +612,13 @@ const routes = [
         }
       },
       {
-        path: "soundcheck-genres",
-        component: () => import("@/views/signup/soundcheck/genres.vue"),
-        name: "signup.soundcheck-genres",
+        path: "soundcheck-now-playing",
+        component: () => import("@/views/signup/soundcheck/now-playing.vue"),
+        name: "signup.soundcheck-now-playing",
         meta: {
           authRequired: true,
           menu: {
-            title: "Soundcheck Genres",
+            title: "Soundcheck - Now Playing",
             icon: "c-songstory",
             hide: false,
             priority: 1
