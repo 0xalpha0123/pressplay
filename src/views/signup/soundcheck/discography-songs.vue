@@ -6,7 +6,7 @@
           <ion-row class="ion-justify-content-center">
             <ion-col size="12" size-md="6" size-xl="4" class="ion-no-padding">
               <div class="full-screen">
-                <topbar showRightIcon="true" />
+                <topbar :showRightIcon="true" />
                 <div class="sound-check-content">
                   <h2>press play on any question to answer</h2>
                 </div>

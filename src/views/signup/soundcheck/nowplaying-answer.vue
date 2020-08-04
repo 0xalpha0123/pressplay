@@ -6,10 +6,11 @@
           <ion-row class="ion-justify-content-center">
             <ion-col size="12" size-md="6" size-xl="4" class="ion-no-padding">
               <div class="full-screen">
-                <topbar showRightIcon="true"/>
+                <topbar :showRightIcon="true"/>
                 <div class="sound-check-content">
-                  <h2>Now Playing</h2>
-                  <h3> answers form this chart:</h3>
+                  <h2>Now Playing
+                    <span> answers form this chart:</span>
+                  </h2>
                 </div>
                 <!-- <div class="round-record">
                     <img src="../../../assets/images/two-circles.png" alt="record image" />
@@ -114,7 +115,7 @@ export default {
   text-align: center;
   color: #fff;
 }
-.sound-check-content h3 {
+.sound-check-content span {
   color: #f2c94c;
 }
 .music-list img.small-icon {
