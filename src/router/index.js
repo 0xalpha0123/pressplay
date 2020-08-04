@@ -666,6 +666,34 @@ const routes = [
             priority: 1
           }
         }
+      },
+      {
+        path: "soundcheck-discographysongs",
+        component: () => import("@/views/signup/soundcheck/discography-songs.vue"),
+        name: "signup.soundcheck-discographysongs",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Discography",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
+      },
+      {
+        path: "soundcheck-discographyanswered",
+        component: () => import("@/views/signup/soundcheck/discography-answered.vue"),
+        name: "signup.soundcheck-discographyanswered",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Discography",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
       }
     ]
   },
