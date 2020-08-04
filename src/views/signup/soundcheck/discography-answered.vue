@@ -8,8 +8,13 @@
               <div class="full-screen">
                 <topbar />
                 <div class="sound-check-content">
-                  <h2>press play on any question to answer</h2>
+                  <h2>Discography</h2>
+                  <span> answers form this timeline:</span>
                 </div>
+                <div class="round-record">
+                    <img src="../../../assets/images/two-circles.png" alt="record image" />
+                </div>
+                <div class="line-stroke"></div>
               </div>
             </ion-col>
           </ion-row>
@@ -21,13 +26,30 @@
             <ion-item>
               <ion-avatar class="avatar" slot="start">
                 <img
+                  src="../../../assets/images/blue-checkmark.png"
+                  class="small-icon"
+                  alt="search icon"
+                />
+              </ion-avatar>
+              <ion-label class="text-capitalize">
+                <h5>first musical memory</h5>
+                <h6 class="text-capitalize">I Love You</h6>
+                <ion-text color="medium" class="text-small">Friends</ion-text>
+              </ion-label>
+              <ion-avatar class="avatar" slot="end">
+                <img src="../../../assets/images/play.png" class="small-icon" alt="menu icon" />
+              </ion-avatar>
+            </ion-item>
+            <ion-item>
+              <ion-avatar class="avatar" slot="start">
+                <img
                   src="../../../assets/images/search-purple.png"
                   class="small-icon"
                   alt="search icon"
                 />
               </ion-avatar>
               <ion-label class="text-capitalize">
-                <h5>best day of your life song</h5>
+                <h5>Best day of your life song</h5>
               </ion-label>
               <ion-avatar class="avatar" slot="end">
                 <img src="../../../assets/images/play.png" class="small-icon" alt="menu icon" />
@@ -42,25 +64,10 @@
                 />
               </ion-avatar>
               <ion-label class="text-capitalize">
-                <h5>first kiss</h5>
+                <h5>First Kiss</h5>
               </ion-label>
               <ion-avatar class="avatar" slot="end">
-                <img src="../../../assets/images/paly-purple.png" class="small-icon" alt="menu icon" />
-              </ion-avatar>
-            </ion-item>
-            <ion-item>
-              <ion-avatar class="avatar" slot="start">
-                <img
-                  src="../../../assets/images/search-gray.png"
-                  class="small-icon"
-                  alt="search icon"
-                />
-              </ion-avatar>
-              <ion-label class="text-capitalize">
-                <h5>first musical memory</h5>
-              </ion-label>
-              <ion-avatar class="avatar" slot="end">
-                <img src="../../../assets/images/paly-purple.png" class="small-icon" alt="menu icon" />
+                <img src="../../../assets/images/play.png" class="small-icon" alt="menu icon" />
               </ion-avatar>
             </ion-item>
           </ion-list>
@@ -78,10 +85,24 @@ export default {
 };
 </script>
 <style scoped>
+.round-record {
+    position: absolute;
+    left: 100px;
+    bottom: 90px;
+    max-width: 22px;
+}
+.line-stroke {
+    height: 3px;
+    width: 70%;
+    margin-top:5px;
+    margin-left: 50px;
+    background: #FFFFFF;
+    /* background: linear-gradient(rgba(255, 255, 255, 0) 0%, #FFFFFF 53.13%, rgba(255, 255, 255, 0) 100%); */
+}
 .sound-check {
   height: 100vh;
   background: linear-gradient(180deg, #9B51E0 0%, #2A82EC 53.13%, #28CAED 100%);
-  max-height: 350px;
+  max-height: 380px;
   border-radius: 0px 0px 50px 50px;
 }
 .sound-check-content {
@@ -95,6 +116,14 @@ export default {
   line-height: 1.15;
   text-align: center;
   color: #fff;
+}
+.sound-check-content span {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 27px;
+  line-height: 1.15;
+  text-align: center;
+  color: #f2c94c;
 }
 .music-list img.small-icon {
     width: auto;
