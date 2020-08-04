@@ -624,6 +624,20 @@ const routes = [
             priority: 1
           }
         }
+      },
+      {
+        path: "soundcheck-discography",
+        component: () => import("@/views/signup/soundcheck/discography.vue"),
+        name: "signup.soundcheck-discography",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Discography",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
       }
     ]
   },
