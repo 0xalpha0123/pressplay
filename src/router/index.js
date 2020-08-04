@@ -694,6 +694,20 @@ const routes = [
             priority: 1
           }
         }
+      },
+      {
+        path: "soundcheck-nowplaying-answer",
+        component: () => import("@/views/signup/soundcheck/nowplaying-answer.vue"),
+        name: "signup.soundcheck-nowplaying-answer",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Nowplaying",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
       }
     ]
   },
