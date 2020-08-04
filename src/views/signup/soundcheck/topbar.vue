@@ -29,6 +29,5 @@
   left: 1.94%;
   top: 0.63%;
   width: 40px;
-  fill: red;
 }
 </style>
