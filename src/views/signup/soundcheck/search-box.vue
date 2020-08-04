@@ -1,8 +1,18 @@
 <template>
   <div class="soundcheck-search-box">
-    <input placeholder="search for a genre..." />
+    <input :placeholder="placeholder" />
   </div>
 </template>
+<script>
+export default {
+  props: {
+    placeholder: {
+      type: String,
+      required: true,
+    }
+  }
+}
+</script>
 <style scoped>
 .soundcheck-search-box {
   padding: 10px;

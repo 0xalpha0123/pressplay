@@ -24,7 +24,7 @@
                     </ion-col>
                   </ion-row>
                 </div>
-                <search-box />
+                <search-box placeholder="search for a genre..." />
                 <div class="genre-list">
                   <ion-row class="ion-justify-content-center">
                     <ion-col>
