@@ -666,6 +666,20 @@ const routes = [
             priority: 1
           }
         }
+      },
+      {
+        path: "soundcheck-songs",
+        component: () => import("@/views/signup/soundcheck/songs.vue"),
+        name: "signup.soundcheck-songs",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Songs",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
       }
     ]
   },
