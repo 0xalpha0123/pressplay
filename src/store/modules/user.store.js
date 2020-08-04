@@ -93,7 +93,7 @@ const initialState = () => ({
     setup: {
       complete: false,
       completed: [],
-      next: "signup.terms"
+      next: "signup.verify"
     }
   },
   userLoaded: false
