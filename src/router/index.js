@@ -166,7 +166,7 @@ const routes = [
       authRequired: true,
       layout: "navigator",
       menu: {
-        hide: true,
+        hide: true
       }
     }
   },
@@ -609,6 +609,62 @@ const routes = [
         name: "signup.verify",
         meta: {
           authRequired: true
+        }
+      },
+      {
+        path: "soundcheck-subscribe",
+        component: () => import("@/views/signup/soundcheck/subscribe.vue"),
+        name: "signup.soundcheck-subscribe",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Subscribe",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
+      },
+      {
+        path: "soundcheck-now-playing",
+        component: () => import("@/views/signup/soundcheck/now-playing.vue"),
+        name: "signup.soundcheck-now-playing",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Now Playing",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
+      },
+      {
+        path: "soundcheck-discography",
+        component: () => import("@/views/signup/soundcheck/discography.vue"),
+        name: "signup.soundcheck-discography",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Discography",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
+      },
+      {
+        path: "soundcheck-genres",
+        component: () => import("@/views/signup/soundcheck/genres.vue"),
+        name: "signup.soundcheck-genres",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Genres",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
         }
       }
     ]
