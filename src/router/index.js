@@ -612,6 +612,20 @@ const routes = [
         }
       },
       {
+        path: "soundcheck-subscribe",
+        component: () => import("@/views/signup/soundcheck/subscribe.vue"),
+        name: "signup.soundcheck-subscribe",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Subscribe",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
+      },
+      {
         path: "soundcheck-now-playing",
         component: () => import("@/views/signup/soundcheck/now-playing.vue"),
         name: "signup.soundcheck-now-playing",
