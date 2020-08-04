@@ -1,6 +1,7 @@
 <template>
   <ion-page>
-    <ion-content :scrollEvents="true">
+    <ion-content :scrollEvents="!isOpen">
+      <subscribe-modal :togglePopup="togglePopup" :isOpen="isOpen" />
       <ion-card class="main-playing box-shadow content-card max-width sound-check">
         <ion-grid class="ion-no-padding visitor">
           <ion-row class="ion-justify-content-center">
@@ -10,7 +11,7 @@
                 <div class="sound-check-content">
                   <h2>your current tastes make up your</h2>
                   <h3>Now Playing</h3>
-                  <div class="sound-circle">
+                  <div class="sound-circle" @click="togglePopup">
                     <div>
                       <img src="../../../assets/images/now-playing-bw.png" />
                       <h5>currently on repeat</h5>
@@ -27,9 +28,21 @@
 </template>
 <script>
 import topbar from "./topbar";
+import subscribeModal from "./subscribe-modal";
 export default {
   components: {
-    topbar
+    topbar,
+    subscribeModal
+  },
+  data() {
+    return {
+      isOpen: false
+    };
+  },
+  methods: {
+    togglePopup() {
+      this.isOpen = !this.isOpen;
+    }
   }
 };
 </script>
