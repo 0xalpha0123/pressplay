@@ -6,10 +6,11 @@
           <ion-row class="ion-justify-content-center">
             <ion-col size="12" size-md="6" size-xl="4" class="ion-no-padding">
               <div class="full-screen">
-                <topbar showRightIcon="true" />
+                <topbar :showRightIcon="true" />
                 <div class="sound-check-content">
-                  <h2>Discography</h2>
-                  <span> answers form this timeline:</span>
+                  <h2>Discography
+                    <span> answers form this timeline:</span>
+                  </h2>
                 </div>
                 <div class="round-record">
                     <img src="../../../assets/images/two-circles.png" alt="record image" />
