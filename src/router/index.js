@@ -652,6 +652,20 @@ const routes = [
             priority: 1
           }
         }
+      },
+      {
+        path: "soundcheck-artists",
+        component: () => import("@/views/signup/soundcheck/artists.vue"),
+        name: "signup.soundcheck-artists",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Artists",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
       }
     ]
   },
