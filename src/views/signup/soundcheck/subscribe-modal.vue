@@ -34,7 +34,7 @@ export default {
 .modal-content {
   height: 100%;
   width: 100%;
-  padding: 22px 10px;
+  padding: 22px 10px 11px;
   position: relative;
 }
 .grey-eclipse {
