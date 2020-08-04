@@ -610,6 +610,20 @@ const routes = [
         meta: {
           authRequired: true
         }
+      },
+      {
+        path: "soundcheck-genres",
+        component: () => import("@/views/signup/soundcheck/genres.vue"),
+        name: "signup.soundcheck-genres",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck Genres",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
       }
     ]
   },
