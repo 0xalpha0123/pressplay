@@ -90,16 +90,6 @@
               >
                 <ion-label>Your passwords do not match.</ion-label>
               </ion-item>
-              <ion-item lines="none">
-                <ion-label position="stacked">Phone</ion-label>
-                <ion-input
-                  required
-                  type="number"
-                  :value="userData.profile.phoneNumber"
-                  :disabled="loading"
-                  @ionInput="userData.profile.phoneNumber = $event.target.value"
-                ></ion-input>
-              </ion-item>
               <ion-item class="no-style" lines="none">
                 <ion-checkbox
                   :checked="termsAccepted"
@@ -257,7 +247,6 @@ export default {
         this.email !== "" &&
         this.userData.profile.firstname !== "" &&
         this.userData.profile.lastname !== "" &&
-        this.userData.profile.phoneNumber !== "" &&
         this.termsAccepted &&
         this.passwordsMatch
       );
