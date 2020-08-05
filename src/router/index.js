@@ -544,7 +544,7 @@ const routes = [
         component: () => import("@/views/signup/artists.vue"),
         name: "signup.artists",
         meta: {
-          authRequired: true
+          // authRequired: true
         }
       },
       {
@@ -552,7 +552,23 @@ const routes = [
         component: () => import("@/views/signup/gender.vue"),
         name: "signup.gender",
         meta: {
-          authRequired: true
+          // authRequired: true
+        }
+      },
+      {
+        path: "express-new",
+        component: () => import("@/views/signup/express-new.vue"),
+        name: "signup.express_new",
+        meta: {
+          authRequired: false
+        }
+      },
+      {
+        path: "gender-new",
+        component: () => import("@/views/signup/gender-new.vue"),
+        name: "signup.gender_new",
+        meta: {
+          authRequired: false
         }
       },
       {
@@ -560,7 +576,7 @@ const routes = [
         component: () => import("@/views/signup/genres.vue"),
         name: "signup.genres",
         meta: {
-          authRequired: true
+          // authRequired: true
         }
       },
       {
@@ -568,7 +584,7 @@ const routes = [
         component: () => import("@/views/signup/privacy.vue"),
         name: "signup.privacy",
         meta: {
-          authRequired: true
+          // authRequired: true
         }
       },
       {
@@ -576,7 +592,7 @@ const routes = [
         component: () => import("@/views/signup/profile.vue"),
         name: "signup.profile",
         meta: {
-          authRequired: true
+          // authRequired: true
         }
       },
       {
@@ -584,7 +600,7 @@ const routes = [
         component: () => import("@/views/signup/seeking.vue"),
         name: "signup.seeking",
         meta: {
-          authRequired: true
+          // authRequired: true
         }
       },
       {
@@ -592,7 +608,7 @@ const routes = [
         component: () => import("@/views/signup/songs.vue"),
         name: "signup.songs",
         meta: {
-          authRequired: true
+          // authRequired: true
         }
       },
       {
@@ -600,7 +616,7 @@ const routes = [
         component: () => import("@/views/signup/terms.vue"),
         name: "signup.terms",
         meta: {
-          authRequired: true
+          // authRequired: true
         }
       },
       {
@@ -608,7 +624,7 @@ const routes = [
         component: () => import("@/views/signup/verify.vue"),
         name: "signup.verify",
         meta: {
-          authRequired: true
+          // authRequired: true
         }
       },
       {
@@ -616,7 +632,7 @@ const routes = [
         component: () => import("@/views/signup/soundcheck/subscribe.vue"),
         name: "signup.soundcheck-subscribe",
         meta: {
-          authRequired: true,
+          authRequired: false,
           menu: {
             title: "Soundcheck - Subscribe",
             icon: "c-songstory",
@@ -630,7 +646,7 @@ const routes = [
         component: () => import("@/views/signup/soundcheck/now-playing.vue"),
         name: "signup.soundcheck-now-playing",
         meta: {
-          authRequired: true,
+          authRequired: false,
           menu: {
             title: "Soundcheck - Now Playing",
             icon: "c-songstory",
@@ -644,7 +660,7 @@ const routes = [
         component: () => import("@/views/signup/soundcheck/discography.vue"),
         name: "signup.soundcheck-discography",
         meta: {
-          authRequired: true,
+          authRequired: false,
           menu: {
             title: "Soundcheck - Discography",
             icon: "c-songstory",
@@ -658,7 +674,7 @@ const routes = [
         component: () => import("@/views/signup/soundcheck/genres.vue"),
         name: "signup.soundcheck-genres",
         meta: {
-          authRequired: true,
+          authRequired: false,
           menu: {
             title: "Soundcheck - Genres",
             icon: "c-songstory",

@@ -9,7 +9,7 @@
               class="ion-justify-content-center ion-align-items-center"
             >
               <ion-text color="light" class="ion-text-center">
-                <h1>
+                <h1 class="heading">
                   ...getting to know<br />
                   all about you...
                 </h1>
@@ -19,15 +19,6 @@
         </ion-row>
         <ion-row class="ion-justify-content-center ion-align-items-center">
           <ion-col size="12" size-md="6" size-xl="4">
-            <ion-text
-              class="ion-text-center"
-              v-if="!userData.profile.gender.identity"
-            >
-              <h3>Gender Identity</h3>
-              <p>
-                Swipe left or right to find the icon you most identify with
-              </p>
-            </ion-text>
             <div
               class="slide-container"
               v-show="!userData.profile.gender.identity"
@@ -61,6 +52,16 @@
                   </div>
                 </ion-slide>
               </ion-slides>
+                <ion-row
+                class="gender_description ion-margin-top"
+                v-if="!userData.profile.gender.identity"
+              >
+                <h3>Gender Identity</h3>
+                <p>
+                  Swipe left or right to find the icon you most identify with
+                </p>
+                <icon name="help-circle" size="large"></icon>
+              </ion-row>
               <div class="slide-nav ion-hide-md-down">
                 <ion-fab-button
                   class="prev"
@@ -234,7 +235,7 @@
         <ion-row> </ion-row>
       </ion-grid>
     </ion-content>
-    <ion-footer class="no-style fade-to-bottom">
+    <ion-footer class="no-style">
       <ion-grid>
         <ion-row class="ion-justify-content-center">
           <ion-col size="12" size-md="6" size-xl="4">
@@ -243,15 +244,20 @@
               expand="block"
               size="large"
               type="submit"
-              :disabled="savingProfile || !validGender"
+              :disabled="savingProfile"
             >
               <ion-spinner
                 v-if="savingProfile || savingSetup"
                 slot="start"
               ></ion-spinner>
-              Continue
+              Play On
             </ion-button>
           </ion-col>
+        </ion-row>
+        <ion-row>
+          <div class="horizontal_bar">
+            <div class="bar_inner" />
+          </div>
         </ion-row>
       </ion-grid>
     </ion-footer>
@@ -353,6 +359,43 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.signup-bg{
+  background-position-y: -30vh;
+  background-position-x: 68%;
+}
+.heading{
+  font-size: 27px;
+  line-height: 115%;
+}
+.gender_description{
+  position: relative;
+  width: 100%;
+  h3{
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 8px;
+    color: #333333;
+  }
+  p{
+    margin: 0;
+    font-size: 16px;
+    line-height: 19px;
+    color: #807B80;
+  }
+  ion-icon{
+    color: #CECAC9;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+.horizontal_bar{
+  .bar_inner{
+    width: 64%;
+  }
+}
 ion-slides {
   ion-slide {
     .slide {
@@ -362,12 +405,21 @@ ion-slides {
     &.swiper-slide-active {
       cursor: pointer;
       z-index: 5;
+      .aspect-ratio{
+        background: radial-gradient(50% 50% at 50% 50%, #BDBDBD 0%, #828282 100%);
+        border: 14px solid #E0DFE0;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 50%;
+      }
       ion-text {
-        color: var(--ion-color-dark, #222428) !important;
+        font-size: 18px;
+        line-height: 25px;
+        color: #807B80 !important;
       }
     }
     &:not(.swiper-slide-active) {
-      transform: scale(0.8);
+      transform: scale(0.5);
+      opacity: 0.5;
       ion-text {
         color: var(--ion-color-medium, #92949c) !important;
       }

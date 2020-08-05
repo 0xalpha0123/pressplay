@@ -9,7 +9,7 @@
               class="ion-justify-content-center ion-align-items-center"
             >
               <ion-text color="light" class="ion-text-center">
-                <h1>don't you lose our number</h1>
+                <h1 class="heading">don't you lose our<br/>number</h1>
               </ion-text>
             </aspect-ratio>
           </ion-col>
@@ -52,7 +52,6 @@
               <ion-button
                 color="primary"
                 fill="clear"
-                :href="href"
                 @click.prevent="navigate"
               >
                 Resend
@@ -70,7 +69,7 @@
               class="bright-horizontal-gradient"
               expand="block"
               size="large"
-              type="submit"
+              @click="verify_account"
             >
               Play On
             </ion-button>
@@ -103,16 +102,20 @@ export default {
 
   methods: {
     otpController(event,next,prev){
-      if(event.target.value.length < 1 && prev){
-        document.getElementById(prev).focus();
-      }
-      else if(next && event.target.value.length>0){
-        document.getElementById(next).focus();
-      }
-      else {
-        return 0;
-      } 
+      console.log(next, ' ', prev);
+      // if(event.target.value.length < 1 && prev){
+      //   document.getElementById(prev).focus();
+      // }
+      // else if(next && event.target.value.length>0){
+      //   document.getElementById(next).focus();
+      // }
+      // else {
+      //   return 0;
+      // } 
     },
+    verify_account() {
+      this.$router.push({ name: "signup.terms" });
+    }
   },
 
   mixins: [UserData]
@@ -121,6 +124,14 @@ export default {
 <style lang="scss" scoped>
 ion-content {
   background-position-x: 10%;
+}
+.heading{
+  margin-top: 48px;
+  font-size: 27px;
+  line-height: 115%;
+}
+.signup-bg {
+  background-position-x: 20%;
 }
 .form ion-grid {
   --ion-grid-column-padding: 8px;
@@ -146,16 +157,8 @@ ion-content {
   }
 }
 .horizontal_bar{
-  width: 100%;
-  height: 11px;
-  background: #E0E0E0;
-  border-radius: 10px;
-  overflow: hidden;
   .bar_inner{
     width: 32%;
-    height: 100%;
-    background: linear-gradient(117.29deg, #471B74 0.35%, #713682 80.95%, #AA2986 98.89%);
-    border-radius: 10px;
   }
 }
 .otp-input {
