@@ -6,10 +6,15 @@
           <ion-row class="ion-justify-content-center">
             <ion-col size="12" size-md="6" size-xl="4" class="ion-no-padding">
               <div class="full-screen">
-                <topbar :showRightIcon="true" />
+                <topbar :showRightIcon="true"/>
                 <div class="sound-check-content">
-                  <h2>press play on any question to answer</h2>
+                  <h2>Now Playing
+                    <span> answers form this chart:</span>
+                  </h2>
                 </div>
+                <!-- <div class="round-record">
+                    <img src="../../../assets/images/two-circles.png" alt="record image" />
+                </div> -->
               </div>
             </ion-col>
           </ion-row>
@@ -20,47 +25,45 @@
           <ion-list lines="full">
             <ion-item>
               <ion-avatar class="avatar" slot="start">
-                <img
-                  src="../../../assets/images/search-purple.png"
-                  class="small-icon"
-                  alt="search icon"
-                />
+                <a href="#">
+                  <span class="play-list-song">3</span>
+                </a>
               </ion-avatar>
               <ion-label class="text-capitalize">
-                <h5>best day of your life song</h5>
+                <h5>favorite genres</h5>
+                <h6>folk, bluegrass, electronic</h6>
+                <ion-text color="medium" class="text-small">Friends</ion-text>
+              </ion-label>
+              <ion-avatar class="avatar" slot="end">
+                <img src="../../../assets/images/three-dots-small.png" class="small-icon" alt="menu icon" />
+              </ion-avatar>
+            </ion-item>
+            <ion-item>
+              <ion-avatar class="avatar" slot="start">
+                <a href="#">
+                  <span class="play-list-song">5</span>
+                </a>
+              </ion-avatar>
+              <ion-label class="text-capitalize">
+                <h5>favorite artists</h5>
+                <h6>amber lily, tubby love, dust</h6>
+              </ion-label>
+              <ion-avatar class="avatar" slot="end">
+                <img src="../../../assets/images/three-dots-small.png" class="small-icon" alt="menu icon" />
+              </ion-avatar>
+            </ion-item>
+            <ion-item>
+              <ion-avatar class="avatar" slot="start">
+                <a href="#">
+                  <span class="play-list-song">10</span>
+                </a>
+              </ion-avatar>
+              <ion-label class="text-capitalize">
+                <h5>favorite songs</h5>
+                <h6>love will find a way, the matrix</h6>
               </ion-label>
               <ion-avatar class="avatar" slot="end">
                 <img src="../../../assets/images/play.png" class="small-icon" alt="menu icon" />
-              </ion-avatar>
-            </ion-item>
-            <ion-item>
-              <ion-avatar class="avatar" slot="start">
-                <img
-                  src="../../../assets/images/search-gray.png"
-                  class="small-icon"
-                  alt="search icon"
-                />
-              </ion-avatar>
-              <ion-label class="text-capitalize">
-                <h5>first kiss</h5>
-              </ion-label>
-              <ion-avatar class="avatar" slot="end">
-                <img src="../../../assets/images/paly-purple.png" class="small-icon" alt="menu icon" />
-              </ion-avatar>
-            </ion-item>
-            <ion-item>
-              <ion-avatar class="avatar" slot="start">
-                <img
-                  src="../../../assets/images/search-gray.png"
-                  class="small-icon"
-                  alt="search icon"
-                />
-              </ion-avatar>
-              <ion-label class="text-capitalize">
-                <h5>first musical memory</h5>
-              </ion-label>
-              <ion-avatar class="avatar" slot="end">
-                <img src="../../../assets/images/paly-purple.png" class="small-icon" alt="menu icon" />
               </ion-avatar>
             </ion-item>
           </ion-list>
@@ -78,10 +81,26 @@ export default {
 };
 </script>
 <style scoped>
+.play-list-song {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(163.44deg, #471b74 0.36%, #5d148c 56.93%, #aa2986 100%);
+    border-radius: 100%;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 24px;
+    overflow: hidden;
+}
 .sound-check {
   height: 100vh;
-  background: linear-gradient(180deg, #9B51E0 0%, #2A82EC 53.13%, #28CAED 100%);
-  max-height: 350px;
+    background: radial-gradient(
+    81.45% 62.07% at 49.85% 67.49%,
+    #7d35f3 0%,
+    #471b74 100%
+  );
+  max-height: 380px;
   border-radius: 0px 0px 50px 50px;
 }
 .sound-check-content {
@@ -95,6 +114,9 @@ export default {
   line-height: 1.15;
   text-align: center;
   color: #fff;
+}
+.sound-check-content span {
+  color: #f2c94c;
 }
 .music-list img.small-icon {
     width: auto;

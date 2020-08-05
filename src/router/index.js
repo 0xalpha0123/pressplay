@@ -682,6 +682,76 @@ const routes = [
             priority: 1
           }
         }
+      },
+      {
+        path: "soundcheck-discographysongs",
+        component: () => import("@/views/signup/soundcheck/discography-songs.vue"),
+        name: "signup.soundcheck-discographysongs",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Discography",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
+      },
+      {
+        path: "soundcheck-artists",
+        component: () => import("@/views/signup/soundcheck/artists.vue"),
+        name: "signup.soundcheck-artists",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Artists",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
+      },
+      {
+        path: "soundcheck-discographyanswered",
+        component: () => import("@/views/signup/soundcheck/discography-answered.vue"),
+        name: "signup.soundcheck-discographyanswered",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Discography",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
+      },
+      {
+        path: "soundcheck-nowplaying-answer",
+        component: () => import("@/views/signup/soundcheck/nowplaying-answer.vue"),
+        name: "signup.soundcheck-nowplaying-answer",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Nowplaying",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
+      },
+      {
+        path: "soundcheck-songs",
+        component: () => import("@/views/signup/soundcheck/songs.vue"),
+        name: "signup.soundcheck-songs",
+        meta: {
+          authRequired: true,
+          menu: {
+            title: "Soundcheck - Songs",
+            icon: "c-songstory",
+            hide: false,
+            priority: 1
+          }
+        }
       }
     ]
   },
