@@ -281,16 +281,6 @@ ion-row{
     font-size: 13px;
     color: #807B80;
   }
-  .checkbox_container{
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(180deg, #9B51E0 0%, #2A82EC 53.13%, #28CAED 100%);
-    border-radius: 31px;
-    margin-right: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 } 
 .verify_phone{
   margin-top: 12px;
@@ -325,19 +315,6 @@ ion-row{
     position: absolute;
     background: #FFFFFF;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.42);
-  }
-}
-.horizontal_bar{
-  width: 100%;
-  height: 11px;
-  background: #E0E0E0;
-  border-radius: 10px;
-  overflow: hidden;
-  .bar_inner{
-    width: 16%;
-    height: 100%;
-    background: linear-gradient(117.29deg, #471B74 0.35%, #713682 80.95%, #AA2986 98.89%);
-    border-radius: 10px;
   }
 }
 .form ion-grid {
